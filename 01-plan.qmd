@@ -3,6 +3,6 @@ title: "Plan Overview"
 editor: source
 ---
 
-![](images/overview.png){fig-align="center"}
+![](images/overview.png){fig-align="center" width=60%}
 
 -   We'll be focusing on {cards}, {cardx}, and {gtsummary}

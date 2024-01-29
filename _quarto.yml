@@ -37,7 +37,7 @@ website:
      - href: 03-cards-examples.qmd
        text: cards Overview
      - href: 04-cards-internals.qmd
-       text: cards Utilities
+       text: cards for Developers
      - href: 05-cli-conditions.qmd
        text: Error Messaging
      - href: 06-helper-functions.qmd
