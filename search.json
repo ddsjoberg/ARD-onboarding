@@ -34,9 +34,9 @@
     "href": "04-cards-internals.html",
     "title": "{cards} Internals",
     "section": "",
-    "text": "REVIEW THE UTILITIES THAT ARE EXPORTED.\nREVIEW THE PR TEMPLATE AND EXPECTATIONS FOR CONTRIBUTING",
+    "text": "REVIEW THE UTILITIES THAT ARE EXPORTED.\nREVIEW NAMING CONVENTIONS FOR HELPER FUNCTIONS\nREVIEW THE PR TEMPLATE AND EXPECTATIONS FOR CONTRIBUTING",
     "crumbs": [
-      "cards Utilities"
+      "cards for Developers"
     ]
   },
   {
