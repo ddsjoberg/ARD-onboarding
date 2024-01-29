@@ -1,0 +1,10 @@
+---
+title: "Error Messaging"
+editor: source
+---
+
+- OVERVIEW OF OUR ERROR MESSAGING STRATEGY
+
+- GIVE EXAMPLES OF THE AMAZING {cli} TOOLS
+
+- REVIEW THE `cli::cli_abort(call)` ARGUMENT AND HOW IT AFFECTS MESSAGING.

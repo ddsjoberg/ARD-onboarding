@@ -1,0 +1,63 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+
+website:
+  page-navigation: true
+  title: "Analysis Results Datasets Onboarding"
+  description: "Background on {cards}, {cardx}, {gtsummary}"
+  favicon: "images/v1-gtsummary-cards-cardx-HexSticker.png"
+
+  repo-url: https://github.com/ddsjoberg/ARD-onboarding
+  repo-actions: [edit, issue]
+
+  page-footer:
+    left: "This page is built with ❤️ and [Quarto](https://quarto.org/). Inspired by [@minecr.bsky.social](https://bsky.app/profile/minecr.bsky.social)."
+    background: "#c8c8c8"
+
+  sidebar:
+    background: "#c8c8c8"
+    logo: "images/v1-gtsummary-cards-cardx-HexSticker.png"
+    pinned: true
+    align: center
+    tools:
+      - icon: github
+        href: https://github.com/ddsjoberg/ARD-onboarding
+        text: GitHub
+    style: docked
+    contents:
+     - href: index.qmd
+       text: Home
+     - href: 01-plan.qmd
+       text: Plan Overview
+     - href: 02-ard-overview.qmd
+       text: ARD Overview
+     - href: 03-cards-examples.qmd
+       text: cards Overview
+     - href: 04-cards-internals.qmd
+       text: cards Utilities
+     - href: 05-cli-conditions.qmd
+       text: Error Messaging
+     - href: 06-helper-functions.qmd
+       text: Helper Functions
+     - href: 07-standalone-scripts.qmd
+       text: Standalone Scripts
+     - href: 08-cardx.qmd
+       text: cardx Overview
+     - href: 09-gtsummary.qmd
+       text: gtsummary Overview
+     - href: license.qmd
+
+format:
+  html:
+    theme: [cosmo, theme.scss]
+    toc: true
+    code-copy: true
+    code-overflow: scroll
+    mainfont: "Atkinson Hyperlegible"
+    highlight-style: a11y
+
+editor: source
+

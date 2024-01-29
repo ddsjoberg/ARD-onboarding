@@ -1,0 +1,102 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Analysis Results Datasets Onboarding",
+    "section": "",
+    "text": "Overview\nThe CDISC Analysis Results Data (ARD) Model is an emerging standard for encoding statistical analysis outcomes in a machine-readable format. Its primary objective is to streamline the processes of automation, ensuring reproducibility, promoting reusability, and enhancing traceability.\nThe {cards} R package offers a range of functions for ARD generation, from basic univariate summaries like means and tabulations to complex multivariable summaries encompassing regression models and statistical tests.\nThe package includes functionalities to represent results in various formats, including JSON and YAML. Thanks to its flexible structures, the {cards} package can be harnessed in diverse applications, such as generating tables for regulatory submissions and conducting quality control checks on existing tables. Furthermore, the {cards} ARD object can be accessed through a REST API, allowing writers to dynamically incorporate table results into reports.\nThe {cardx} package (extra cards) is a companion to {cards}, exporting more complex functions to generate ARD objects. While {cards} package has minimal dependencies, the {cardx} package will include additional suggested package dependencies.\nWhile {cards} calculates statistics and stores them in a structured object, it cannot present those results; this, however, is where the {gtsummary} package shines. The {gtsummary} package offers a modular framework to construct summary tables. It is the most widely used package for summary tables in the healthcare/pharmaceutical space, and won the American Statistical Association’s 2021 award for Innovation in Statistical Programming and Analytics. The {gtsummary} package is currently being refactored to utilize {cards} as its backend, which will allow users to both extract an ARD object from a {gtsummary} table and use an ARD object to construct a {gtsummary} table. The {cards} and {gtsummary} packages stand as robust and versatile tools, poised to assist in a multitude of analytical endeavors.\n {cards}\n {cardx}\n {gtsummary}\n\n\nPrework\nBefore we meet to review the details, please complete the following:\n\nReview the full Analysis Results Standard, paying particular attention to the section on Analysis Results Data.\n\nCDISC webinar on the model: https://www.cdisc.org/events/webinar/analysis-results-standard-public-review\n\nReview the {gtsummary} package.\n\nCornell Seminar: https://www.youtube.com/watch?v=tANo9E1SYJE&t=5s",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "08-cardx.html",
+    "href": "08-cardx.html",
+    "title": "{cardx} Overview",
+    "section": "",
+    "text": "REVIEW THE PURPOSE OF cardx\nREVIEW AN EXAMPLE OF USING THE cards UTILITIES TO CREATE NEW ARDs",
+    "crumbs": [
+      "cardx Overview"
+    ]
+  },
+  {
+    "objectID": "06-helper-functions.html",
+    "href": "06-helper-functions.html",
+    "title": "Helper Functions",
+    "section": "",
+    "text": "MAYBE THIS IS ALL COVERED IN THE utilities SECTION? DELETE?",
+    "crumbs": [
+      "Helper Functions"
+    ]
+  },
+  {
+    "objectID": "04-cards-internals.html",
+    "href": "04-cards-internals.html",
+    "title": "{cards} Internals",
+    "section": "",
+    "text": "REVIEW THE UTILITIES THAT ARE EXPORTED.",
+    "crumbs": [
+      "cards Utilities"
+    ]
+  },
+  {
+    "objectID": "02-ard-overview.html",
+    "href": "02-ard-overview.html",
+    "title": "ARD Overview",
+    "section": "",
+    "text": "DSICUSSION ON WHAT ARDs ARE BASED ON THE CDISC PRESENTATION.",
+    "crumbs": [
+      "ARD Overview"
+    ]
+  },
+  {
+    "objectID": "01-plan.html",
+    "href": "01-plan.html",
+    "title": "Plan Overview",
+    "section": "",
+    "text": "We’ll be focusing on {cards}, {cardx}, and {gtsummary}",
+    "crumbs": [
+      "Plan Overview"
+    ]
+  },
+  {
+    "objectID": "03-cards-examples.html",
+    "href": "03-cards-examples.html",
+    "title": "{cards} Overview",
+    "section": "",
+    "text": "GIVE OVERVIEW OF THE CURRENT FUNCTIONS IN {cards}",
+    "crumbs": [
+      "cards Overview"
+    ]
+  },
+  {
+    "objectID": "05-cli-conditions.html",
+    "href": "05-cli-conditions.html",
+    "title": "Error Messaging",
+    "section": "",
+    "text": "OVERVIEW OF OUR ERROR MESSAGING STRATEGY\nGIVE EXAMPLES OF THE AMAZING {cli} TOOLS\nREVIEW THE cli::cli_abort(call) ARGUMENT AND HOW IT AFFECTS MESSAGING.",
+    "crumbs": [
+      "Error Messaging"
+    ]
+  },
+  {
+    "objectID": "07-standalone-scripts.html",
+    "href": "07-standalone-scripts.html",
+    "title": "Standalone Scripts",
+    "section": "",
+    "text": "REVIEW THE STANDALONE SCRIPTS AND HOW THEY WILL BE USED ACROSS THE THREE PROJECTS\nREVIEW HOW TO UPDATE THEM WHEN NEEDED",
+    "crumbs": [
+      "Standalone Scripts"
+    ]
+  },
+  {
+    "objectID": "09-gtsummary.html",
+    "href": "09-gtsummary.html",
+    "title": "{gtsummary} Overview",
+    "section": "",
+    "text": "REVIEW HOW CARDS WILL BE USED TO POWER THE STATISTICAL CALCULATIONS\nREVIEW THE ORGANIZATION OF THE cards, bridge, and pier FUNCTIONS.",
+    "crumbs": [
+      "gtsummary Overview"
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+---
+title: "{gtsummary} Overview"
+editor: source
+---
+
+REVIEW HOW CARDS WILL BE USED TO POWER THE STATISTICAL CALCULATIONS
+
+REVIEW THE ORGANIZATION OF THE cards, bridge, and pier FUNCTIONS. 
