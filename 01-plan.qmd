@@ -1,8 +1,0 @@
----
-title: "Plan Overview"
-editor: source
----
-
-![](images/overview.png){fig-align="center"}
-
--   We'll be focusing on {cards}, {cardx}, and {gtsummary}
