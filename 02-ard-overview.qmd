@@ -5,3 +5,5 @@ editor: source
 
 
 - DISCUSSION ON WHAT ARDs ARE BASED ON THE CDISC PRESENTATION.
+
+- Since every will have already watched the video, perhaps we can have a brief conversation about them as a group.

@@ -6,3 +6,19 @@ editor: source
 REVIEW THE PURPOSE OF cardx
 
 REVIEW AN EXAMPLE OF USING THE cards UTILITIES TO CREATE NEW ARDs
+
+The [{cards}](https://insightsengineering.github.io/cards/) package exports many utilities for working with ARD objects.
+Additionally, [{cards}](https://insightsengineering.github.io/cards/) exports utilities for creating new `ard_*()` functions.
+The [{cardx}](https://insightsengineering.github.io/cardx/) package takes advantage of this infrastructure, and exports many other functions for creating more complex ARD objects.
+
+Utilizing these utilities from [{cards}](https://insightsengineering.github.io/cards/), we can easily create a function to prepare the results from a t-test.
+
+```{r}
+cards::ADSL |> 
+  # keep two treatment arms for the t-test calculation
+  dplyr::filter(ARM %in% c("Placebo", "Xanomeline High Dose")) |> 
+  cardx::ard_ttest(by = ARM, variable = AGE)
+```
+
+The utilities allow us to return, not only the results of the t-test, but rows for each of the arguments.
+This allows us to both report the results, and also in a re-use case, know exactly how the results were calculated, e.g. assuming equal variances, the level of the confidence interval, etc.

@@ -5,4 +5,6 @@ editor: source
 
 ![](images/overview.png){fig-align="center" width=60%}
 
--   We'll be focusing on {cards}, {cardx}, and {gtsummary}
+- We'll be focusing on {cards}, {cardx}, and {gtsummary}
+
+- Then we can move on to migrating other `tern::s_*()` functionality into {cardx}

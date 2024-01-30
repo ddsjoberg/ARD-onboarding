@@ -14,3 +14,17 @@ REVIEW THE ORGANIZATION OF THE cards, bridge, and pier FUNCTIONS.
 MENTION THAT OUR PRIORITY IS GETTING cards, cardx, and gtsummary UP AND RUNNING. THEN WE WILL MOVE ON TO PUTTING FURTHER INFRASTUCUTRE IN PLACE FOR ALL REG REPORTING.
 
 MENTION THAT IN THE FUTURE, DECISIONS WE MAKE ABOUT REGULAROTY TABLES CANNOT BREAK gtsummary; THE USER BASE IS TOO LARGE.
+
+
+The [{cards}](https://insightsengineering.github.io/cards/) package does not present results and this is where the [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) package shines.
+The [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) package offers a modular framework to construct summary tables.
+The [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) package is the most widely used package for summary tables in the R ecosystem, and won the American Statistical Association's 2021 award for Innovation in Statistical Programming and Analytics and it's currently being refactored with a [{cards}](https://insightsengineering.github.io/cards/) backend.
+
+After the update, ARDs will play two important roles in a [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/).
+
+1. An ARD will be a byproduct of every [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) tables created.
+
+2. The package will also support an ARD-first approach, ingesting the ARD and returning a [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) table.
+
+![](images/ard-gtsummary-workflow.png){fig-align="left" width=70%}
+

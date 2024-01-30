@@ -3,4 +3,71 @@ title: "{cards} Overview"
 editor: source
 ---
 
-- GIVE OVERVIEW OF THE CURRENT FUNCTIONS IN {cards}
+At the heart of the ARS Model lies the Analysis Results Dataset, a standardized format for exchanging and storing analysis results.
+Imagine it as a neatly organized warehouse where all the crucial information from your clinical trial analysis resides, readily accessible and easy to interpret.
+The [{cards}](https://insightsengineering.github.io/cards/) R package creates ARD from observed data sets, and provides utilities for working with these objects.
+
+The simplest way to introduce the [{cards}](https://insightsengineering.github.io/cards/) R package is with an example of its most basic functionality.
+In the example below, we are using the ADSL example data set that is included in the package and we are calculating basic summary statistics for continuous variables `"AGE"` and `"BMIBL"`.
+
+```{r}
+library(cards)
+
+ADSL |> 
+  ard_continuous(by = ARM, variables = c(AGE, BMIBL))
+```
+
+A few items to note from this result: - The default statistics returned are N, Mean, Standard Deviation, Median, 25th and 75th percentiles, and the minimum and maximum: these can be modified to use *any* univariate statistic whether that function is user-defined or from another package.
+
+- These results are calculated by the treatment arm. There is, however, no requirement to include the `ard_continuous(by)` argument.
+
+- Any unobserved levels of the `by=` column(s), whether that is unobserved combinations of the `by=` variables or unobserved factor levels, will appear in the returned ARD table.
+
+- The results are returned in a structured data frame common among all `ard_*()` functions.
+
+There exists similar functionality for categorical data.
+
+```{r}
+ard_categorical(ADSL, by = ARM, variables = AGEGR1)
+```
+
+As a result of the common structure between this result and the continuous variable summary above, these two data frames can be combined with `bind_ard()`.
+The `bind_ard()` function is similar to `dplyr::bind_rows()`, and includes a few structural checks found in our ARD data frames, e.g. if we combine two ARDs with duplicate statistics, the function will notify us that the ARD no longer contains unique statistics.
+
+It is common that errors or warnings may be return by functions performing these calculations.
+The [{cards}](https://insightsengineering.github.io/cards/) package will continue to return a data frame of the expected structure.
+Where a statistic that could not be calculate would have appeared, we will now see a `NULL` value and the error will be captured and returned as text in the `"error"` column.
+
+```{r}
+mean_with_error <- function(x) {
+  stop("There was an error calculating the mean.")
+  mean(x)
+}
+
+ard_with_error <-
+  ard_continuous(
+    ADSL, 
+    variables = AGE, 
+    statistics = ~list(mean = mean_with_error)
+  )
+ard_with_error
+```
+
+The [{cards}](https://insightsengineering.github.io/cards/) package exports many utilities for working with ARDs.
+The example below is a utility to print any errors or warnings that may have occurred while calculating the statistics.
+
+```{r}
+print_ard_conditions(ard_with_error)
+```
+
+## List-Formula Syntax
+
+Many functions in {cards}, {cardx}, and {gtsummary} have arguments that accept a list-formula syntax, e.g. `ard_continuous(statistics)`.
+The syntax is explained in detail here: https://insightsengineering.github.io/cards/reference/syntax.html
+
+Briefly, these arguments accept a few different structures that are processed into a named list using `cards::process_formula_selectors()`. 
+The two most common are:
+
+1. **Named List**: Named lists are returned as they were passed, unaltered.
+
+1. **List of Formulas**: This may look something like, `list(everything() ~ '<value>')` or `list(AGE ~ 'value', starts_with("BM") ~ 'value')`. Everything on the LHS of the formula is processed with {tidyselect} and flattened to a named list.

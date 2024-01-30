@@ -3,8 +3,9 @@ title: "{cards} Internals"
 editor: source
 ---
 
-- REVIEW THE UTILITIES THAT ARE EXPORTED.
+- REVIEW THE UTILITIES THAT ARE EXPORTED 
 
-- REVIEW NAMING CONVENTIONS FOR HELPER FUNCTIONS
+  - Utilities for creating ARDs
+  
+  - Utilities for working with ARDs
 
-- REVIEW THE PR TEMPLATE AND EXPECTATIONS FOR CONTRIBUTING

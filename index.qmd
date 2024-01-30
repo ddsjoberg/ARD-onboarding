@@ -27,7 +27,7 @@ While {cards} calculates statistics and stores them in a structured object, it c
 
 [`r fontawesome::fa("github")` {gtsummary}](https://github.com/ddsjoberg/gtsummary)
 
-# Prework
+# Pre-work
 
 Before we meet to review the details, please complete the following:
 
