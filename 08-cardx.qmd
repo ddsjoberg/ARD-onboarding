@@ -7,6 +7,9 @@ REVIEW THE PURPOSE OF cardx
 
 REVIEW AN EXAMPLE OF USING THE cards UTILITIES TO CREATE NEW ARDs
 
+SAY SOMETHING ABOUT VALUING the {broom} PACKAGE. NO NEED TO REPLICATE THE WORK ALREADY DONE AND BEING USED BY TENS OF THOUSANDS.
+USE broom, USE THEIR NAMING CONVENTIONS.
+
 The [{cards}](https://insightsengineering.github.io/cards/) package exports many utilities for working with ARD objects.
 Additionally, [{cards}](https://insightsengineering.github.io/cards/) exports utilities for creating new `ard_*()` functions.
 The [{cardx}](https://insightsengineering.github.io/cardx/) package takes advantage of this infrastructure, and exports many other functions for creating more complex ARD objects.
