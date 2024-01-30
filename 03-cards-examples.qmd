@@ -7,6 +7,8 @@ At the heart of the ARS Model lies the Analysis Results Dataset, a standardized 
 Imagine it as a neatly organized warehouse where all the crucial information from your clinical trial analysis resides, readily accessible and easy to interpret.
 The [{cards}](https://insightsengineering.github.io/cards/) R package creates ARD from observed data sets, and provides utilities for working with these objects.
 
+## {cards}
+
 The simplest way to introduce the [{cards}](https://insightsengineering.github.io/cards/) R package is with an example of its most basic functionality.
 In the example below, we are using the ADSL example data set that is included in the package and we are calculating basic summary statistics for continuous variables `"AGE"` and `"BMIBL"`.
 
@@ -33,6 +35,23 @@ ard_categorical(ADSL, by = ARM, variables = AGEGR1)
 
 As a result of the common structure between this result and the continuous variable summary above, these two data frames can be combined with `bind_ard()`.
 The `bind_ard()` function is similar to `dplyr::bind_rows()`, and includes a few structural checks found in our ARD data frames, e.g. if we combine two ARDs with duplicate statistics, the function will notify us that the ARD no longer contains unique statistics.
+
+### Other Functions
+
+The {cards} package also exports functions for tabulating hierarchical data--structures common for adverse event reporting, missing data, and attributes.
+
+```{r}
+#| eval: false
+cards::ard_hierarchical()
+cards::ard_hierarchical_count()
+cards::ard_missing()
+cards::ard_attributes()
+```
+
+Lastly, I wanted to mention the `cards::ard_complex()` continuous function. 
+This function is similar to `ard_continuous()` with an important distinction: rather than performing strictly univariate summaries (e.g. `mean(x)`, `median(x)`), the `ard_complex()` function uses summary functions that accept `x` (like `ard_continuous()` summary functions), the full data frame, and the data frame subset by the by/strata variables.
+
+### Error Messaging
 
 It is common that errors or warnings may be return by functions performing these calculations.
 The [{cards}](https://insightsengineering.github.io/cards/) package will continue to return a data frame of the expected structure.
