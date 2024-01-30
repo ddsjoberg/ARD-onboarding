@@ -10,3 +10,7 @@ editor: source
 - REVIEW THE `cli::cli_abort(call)` ARGUMENT AND HOW IT AFFECTS MESSAGING.
 
 - DO WE IMPLEMENT THE PROPOSED setting of the env when the function is called? I think it's a good idea, but as it's brand new, there could be kinks that need ironing out that I don't know about. I do want to implement, and perhaps it's easier to do it before we onbaord everyone.
+
+Slides from [Hadley Wickham's Masterclass for R Package Development](https://github.com/posit-conf-2023/pkg-dev-masterclass)
+
+{{< pdf images/2-errors-snapshots.pdf width=100% height=800 >}}

@@ -5,7 +5,8 @@ editor: source
 
 - REVIEW THE UTILITIES THAT ARE EXPORTED 
 
-  - Utilities for creating ARDs
-  
-  - Utilities for working with ARDs
+  - Utilities for creating ARDs, everything listed under https://insightsengineering.github.io/cards/reference/index.html#construct-ards
+    - All the basic `cards::ard_*()` can be used to construct bespoke ARDs of differnet flavors
+    
+  - Utilities for working with ARDs, everything listed under https://insightsengineering.github.io/cards/reference/index.html#wrangle-ard
 
