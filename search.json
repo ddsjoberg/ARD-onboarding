@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Analysis Results Datasets Onboarding",
     "section": "",
-    "text": "Overview\nThe CDISC Analysis Results Data (ARD) Model is an emerging standard for encoding statistical analysis outcomes in a machine-readable format. Its primary objective is to streamline the processes of automation, ensuring reproducibility, promoting reusability, and enhancing traceability.\nThe {cards} R package offers a range of functions for ARD generation, from basic univariate summaries like means and tabulations to complex multivariable summaries encompassing regression models and statistical tests.\nThe package includes functionalities to represent results in various formats, including JSON and YAML. Thanks to its flexible structures, the {cards} package can be harnessed in diverse applications, such as generating tables for regulatory submissions and conducting quality control checks on existing tables. Furthermore, the {cards} ARD object can be accessed through a REST API, allowing writers to dynamically incorporate table results into reports.\nThe {cardx} package (extra cards) is a companion to {cards}, exporting more complex functions to generate ARD objects. While {cards} package has minimal dependencies, the {cardx} package will include additional suggested package dependencies.\nWhile {cards} calculates statistics and stores them in a structured object, it cannot present those results; this, however, is where the {gtsummary} package shines. The {gtsummary} package offers a modular framework to construct summary tables. It is the most widely used package for summary tables in the healthcare/pharmaceutical space, and won the American Statistical Association’s 2021 award for Innovation in Statistical Programming and Analytics. The {gtsummary} package is currently being refactored to utilize {cards} as its backend, which will allow users to both extract an ARD object from a {gtsummary} table and use an ARD object to construct a {gtsummary} table. The {cards} and {gtsummary} packages stand as robust and versatile tools, poised to assist in a multitude of analytical endeavors.\n {cards}\n {cardx}\n {gtsummary}\n\n\nPrework\nBefore we meet to review the details, please complete the following:\n\nReview the full Analysis Results Standard, paying particular attention to the section on Analysis Results Data.\n\nCDISC webinar on the model: https://www.cdisc.org/events/webinar/analysis-results-standard-public-review\n\nReview the {gtsummary} package.\n\nCornell Seminar: https://www.youtube.com/watch?v=tANo9E1SYJE&t=5s",
+    "text": "Overview\nThe CDISC Analysis Results Data (ARD) Model is an emerging standard for encoding statistical analysis outcomes in a machine-readable format. Its primary objective is to streamline the processes of automation, ensuring reproducibility, promoting reusability, and enhancing traceability.\nThe {cards} R package offers a range of functions for ARD generation, from basic univariate summaries like means and tabulations to complex multivariable summaries encompassing regression models and statistical tests.\nThe package includes functionalities to represent results in various formats, including JSON and YAML. Thanks to its flexible structures, the {cards} package can be harnessed in diverse applications, such as generating tables for regulatory submissions and conducting quality control checks on existing tables. Furthermore, the {cards} ARD object can be accessed through a REST API, allowing writers to dynamically incorporate table results into reports.\nThe {cardx} package (extra cards) is a companion to {cards}, exporting more complex functions to generate ARD objects. While {cards} package has minimal dependencies, the {cardx} package will include additional suggested package dependencies.\nWhile {cards} calculates statistics and stores them in a structured object, it cannot present those results; this, however, is where the {gtsummary} package shines. The {gtsummary} package offers a modular framework to construct summary tables. It is the most widely used package for summary tables in the healthcare/pharmaceutical space, and won the American Statistical Association’s 2021 award for Innovation in Statistical Programming and Analytics. The {gtsummary} package is currently being refactored to utilize {cards} as its backend, which will allow users to both extract an ARD object from a {gtsummary} table and use an ARD object to construct a {gtsummary} table. The {cards} and {gtsummary} packages stand as robust and versatile tools, poised to assist in a multitude of analytical endeavors.\n {cards}\n {cardx}\n {gtsummary}\n\n\nPre-work\nBefore we meet to review the details, please complete the following:\n\nReview the full Analysis Results Standard, paying particular attention to the section on Analysis Results Data.\n\nCDISC webinar on the model: https://www.cdisc.org/events/webinar/analysis-results-standard-public-review\n\nReview the {gtsummary} package.\n\nCornell Seminar: https://www.youtube.com/watch?v=tANo9E1SYJE&t=5s",
     "crumbs": [
       "Home"
     ]
@@ -14,7 +14,7 @@
     "href": "08-cardx.html",
     "title": "{cardx} Overview",
     "section": "",
-    "text": "REVIEW THE PURPOSE OF cardx\nREVIEW AN EXAMPLE OF USING THE cards UTILITIES TO CREATE NEW ARDs",
+    "text": "REVIEW THE PURPOSE OF cardx\nREVIEW AN EXAMPLE OF USING THE cards UTILITIES TO CREATE NEW ARDs\nThe {cards} package exports many utilities for working with ARD objects. Additionally, {cards} exports utilities for creating new ard_*() functions. The {cardx} package takes advantage of this infrastructure, and exports many other functions for creating more complex ARD objects.\nUtilizing these utilities from {cards}, we can easily create a function to prepare the results from a t-test.\n\ncards::ADSL |&gt; \n  # keep two treatment arms for the t-test calculation\n  dplyr::filter(ARM %in% c(\"Placebo\", \"Xanomeline High Dose\")) |&gt; \n  cardx::ard_ttest(by = ARM, variable = AGE)\n\n{cards} data frame: 14 x 9\n\n\n   group1 variable context   stat_name stat_label statistic\n1     ARM      AGE   ttest    estimate  Mean Dif…     0.828\n2     ARM      AGE   ttest   estimate1  Group 1 …    75.209\n3     ARM      AGE   ttest   estimate2  Group 2 …    74.381\n4     ARM      AGE   ttest   statistic  t Statis…     0.655\n5     ARM      AGE   ttest     p.value    p-value     0.513\n6     ARM      AGE   ttest   parameter  Degrees …   167.362\n7     ARM      AGE   ttest    conf.low  CI Lower…    -1.668\n8     ARM      AGE   ttest   conf.high  CI Upper…     3.324\n9     ARM      AGE   ttest      method     method Welch Tw…\n10    ARM      AGE   ttest alternative  alternat… two.sided\n11    ARM      AGE   ttest          mu    H0 Mean         0\n12    ARM      AGE   ttest      paired  Paired t…     FALSE\n13    ARM      AGE   ttest   var.equal  Equal Va…     FALSE\n14    ARM      AGE   ttest  conf.level  CI Confi…      0.95\n\n\nℹ 3 more variables: statistic_fmt_fn, warning, error\n\n\nThe utilities allow us to return, not only the results of the t-test, but rows for each of the arguments. This allows us to both report the results, and also in a re-use case, know exactly how the results were calculated, e.g. assuming equal variances, the level of the confidence interval, etc.",
     "crumbs": [
       "cardx Overview"
     ]
@@ -24,7 +24,7 @@
     "href": "06-helper-functions.html",
     "title": "Helper Functions",
     "section": "",
-    "text": "MAYBE THIS IS ALL COVERED IN THE utilities SECTION? DELETE?",
+    "text": "REVIEW NAMING CONVENTIONS FOR HELPER FUNCTIONS\nREVIEW THE PR TEMPLATE AND EXPECTATIONS FOR CONTRIBUTING",
     "crumbs": [
       "Helper Functions"
     ]
@@ -34,7 +34,7 @@
     "href": "04-cards-internals.html",
     "title": "{cards} Internals",
     "section": "",
-    "text": "REVIEW THE UTILITIES THAT ARE EXPORTED.\nREVIEW NAMING CONVENTIONS FOR HELPER FUNCTIONS\nREVIEW THE PR TEMPLATE AND EXPECTATIONS FOR CONTRIBUTING",
+    "text": "REVIEW THE UTILITIES THAT ARE EXPORTED\n\nUtilities for creating ARDs\nUtilities for working with ARDs",
     "crumbs": [
       "cards for Developers"
     ]
@@ -44,7 +44,7 @@
     "href": "02-ard-overview.html",
     "title": "ARD Overview",
     "section": "",
-    "text": "DISCUSSION ON WHAT ARDs ARE BASED ON THE CDISC PRESENTATION.",
+    "text": "DISCUSSION ON WHAT ARDs ARE BASED ON THE CDISC PRESENTATION.\nSince every will have already watched the video, perhaps we can have a brief conversation about them as a group.",
     "crumbs": [
       "ARD Overview"
     ]
@@ -54,7 +54,7 @@
     "href": "01-plan.html",
     "title": "Plan Overview",
     "section": "",
-    "text": "We’ll be focusing on {cards}, {cardx}, and {gtsummary}",
+    "text": "We’ll be focusing on {cards}, {cardx}, and {gtsummary}\nThen we can move on to migrating other tern::s_*() functionality into {cardx}",
     "crumbs": [
       "Plan Overview"
     ]
@@ -64,7 +64,27 @@
     "href": "03-cards-examples.html",
     "title": "{cards} Overview",
     "section": "",
-    "text": "GIVE OVERVIEW OF THE CURRENT FUNCTIONS IN {cards}",
+    "text": "At the heart of the ARS Model lies the Analysis Results Dataset, a standardized format for exchanging and storing analysis results. Imagine it as a neatly organized warehouse where all the crucial information from your clinical trial analysis resides, readily accessible and easy to interpret. The {cards} R package creates ARD from observed data sets, and provides utilities for working with these objects.",
+    "crumbs": [
+      "cards Overview"
+    ]
+  },
+  {
+    "objectID": "03-cards-examples.html#cards",
+    "href": "03-cards-examples.html#cards",
+    "title": "{cards} Overview",
+    "section": "{cards}",
+    "text": "{cards}\nThe simplest way to introduce the {cards} R package is with an example of its most basic functionality. In the example below, we are using the ADSL example data set that is included in the package and we are calculating basic summary statistics for continuous variables \"AGE\" and \"BMIBL\".\n\nlibrary(cards)\n\nADSL |&gt; \n  ard_continuous(by = ARM, variables = c(AGE, BMIBL))\n\n{cards} data frame: 48 x 10\n\n\n   group1 group1_level variable stat_name stat_label statistic\n1     ARM      Placebo      AGE         N          N        86\n2     ARM      Placebo      AGE      mean       Mean    75.209\n3     ARM      Placebo      AGE        sd         SD      8.59\n4     ARM      Placebo      AGE    median     Median        76\n5     ARM      Placebo      AGE       p25  25th Per…        69\n6     ARM      Placebo      AGE       p75  75th Per…        82\n7     ARM      Placebo      AGE       min        Min        52\n8     ARM      Placebo      AGE       max        Max        89\n9     ARM      Placebo    BMIBL         N          N        86\n10    ARM      Placebo    BMIBL      mean       Mean    23.636\n\n\nℹ 38 more rows\n\n\nℹ Use `print(n = ...)` to see more rows\n\n\nℹ 4 more variables: context, statistic_fmt_fn, warning, error\n\n\nA few items to note from this result: - The default statistics returned are N, Mean, Standard Deviation, Median, 25th and 75th percentiles, and the minimum and maximum: these can be modified to use any univariate statistic whether that function is user-defined or from another package.\n\nThese results are calculated by the treatment arm. There is, however, no requirement to include the ard_continuous(by) argument.\nAny unobserved levels of the by= column(s), whether that is unobserved combinations of the by= variables or unobserved factor levels, will appear in the returned ARD table.\nThe results are returned in a structured data frame common among all ard_*() functions.\n\nThere exists similar functionality for categorical data.\n\nard_categorical(ADSL, by = ARM, variables = AGEGR1)\n\n{cards} data frame: 27 x 11\n\n\n   group1 group1_level variable variable_level stat_name stat_label statistic\n1     ARM      Placebo   AGEGR1            &lt;65         n          n        14\n2     ARM      Placebo   AGEGR1            &lt;65         N          N        86\n3     ARM      Placebo   AGEGR1            &lt;65         p          %     0.163\n4     ARM    Xanomeli…   AGEGR1            &lt;65         n          n        11\n5     ARM    Xanomeli…   AGEGR1            &lt;65         N          N        84\n6     ARM    Xanomeli…   AGEGR1            &lt;65         p          %     0.131\n7     ARM    Xanomeli…   AGEGR1            &lt;65         n          n         8\n8     ARM    Xanomeli…   AGEGR1            &lt;65         N          N        84\n9     ARM    Xanomeli…   AGEGR1            &lt;65         p          %     0.095\n10    ARM      Placebo   AGEGR1            &gt;80         n          n        30\n\n\nℹ 17 more rows\n\n\nℹ Use `print(n = ...)` to see more rows\n\n\nℹ 4 more variables: context, statistic_fmt_fn, warning, error\n\n\nAs a result of the common structure between this result and the continuous variable summary above, these two data frames can be combined with bind_ard(). The bind_ard() function is similar to dplyr::bind_rows(), and includes a few structural checks found in our ARD data frames, e.g. if we combine two ARDs with duplicate statistics, the function will notify us that the ARD no longer contains unique statistics.\n\nOther Functions\nThe {cards} package also exports functions for tabulating hierarchical data–structures common for adverse event reporting, missing data, and attributes.\n\ncards::ard_hierarchical()\ncards::ard_hierarchical_count()\ncards::ard_missing()\ncards::ard_attributes()\n\nLastly, I wanted to mention the cards::ard_complex() continuous function. This function is similar to ard_continuous() with an important distinction: rather than performing strictly univariate summaries (e.g. mean(x), median(x)), the ard_complex() function uses summary functions that accept x (like ard_continuous() summary functions), the full data frame, and the data frame subset by the by/strata variables.\n\n\nError Messaging\nIt is common that errors or warnings may be return by functions performing these calculations. The {cards} package will continue to return a data frame of the expected structure. Where a statistic that could not be calculate would have appeared, we will now see a NULL value and the error will be captured and returned as text in the \"error\" column.\n\nmean_with_error &lt;- function(x) {\n  stop(\"There was an error calculating the mean.\")\n  mean(x)\n}\n\nard_with_error &lt;-\n  ard_continuous(\n    ADSL, \n    variables = AGE, \n    statistics = ~list(mean = mean_with_error)\n  )\nard_with_error\n\n{cards} data frame: 1 x 8\n\n\n  variable   context stat_name stat_label statistic     error\n1      AGE continuo…      mean       Mean      NULL There wa…\n\n\nℹ 2 more variables: statistic_fmt_fn, warning\n\n\nThe {cards} package exports many utilities for working with ARDs. The example below is a utility to print any errors or warnings that may have occurred while calculating the statistics.\n\nprint_ard_conditions(ard_with_error)\n\nThe following errors were returned while calculating statistics:\n✖ For variable `AGE` and \"mean\" statistic: There was an error calculating the\n  mean.",
+    "crumbs": [
+      "cards Overview"
+    ]
+  },
+  {
+    "objectID": "03-cards-examples.html#list-formula-syntax",
+    "href": "03-cards-examples.html#list-formula-syntax",
+    "title": "{cards} Overview",
+    "section": "List-Formula Syntax",
+    "text": "List-Formula Syntax\nMany functions in {cards}, {cardx}, and {gtsummary} have arguments that accept a list-formula syntax, e.g. ard_continuous(statistics). The syntax is explained in detail here: https://insightsengineering.github.io/cards/reference/syntax.html\nBriefly, these arguments accept a few different structures that are processed into a named list using cards::process_formula_selectors(). The two most common are:\n\nNamed List: Named lists are returned as they were passed, unaltered.\nList of Formulas: This may look something like, list(everything() ~ '&lt;value&gt;') or list(AGE ~ 'value', starts_with(\"BM\") ~ 'value'). Everything on the LHS of the formula is processed with {tidyselect} and flattened to a named list.",
     "crumbs": [
       "cards Overview"
     ]
@@ -74,7 +94,7 @@
     "href": "05-cli-conditions.html",
     "title": "Error Messaging",
     "section": "",
-    "text": "OVERVIEW OF OUR ERROR MESSAGING STRATEGY\nGIVE EXAMPLES OF THE AMAZING {cli} TOOLS\nREVIEW THE cli::cli_abort(call) ARGUMENT AND HOW IT AFFECTS MESSAGING.",
+    "text": "OVERVIEW OF OUR ERROR MESSAGING STRATEGY\nGIVE EXAMPLES OF THE AMAZING {cli} TOOLS\nREVIEW THE cli::cli_abort(call) ARGUMENT AND HOW IT AFFECTS MESSAGING.\nDO WE IMPLEMENT THE PROPOSED setting of the env when the function is called? I think it’s a good idea, but as it’s brand new, there could be kinks that need ironing out that I don’t know about. I do want to implement, and perhaps it’s easier to do it before we onbaord everyone.",
     "crumbs": [
       "Error Messaging"
     ]
@@ -84,7 +104,7 @@
     "href": "07-standalone-scripts.html",
     "title": "Standalone Scripts",
     "section": "",
-    "text": "REVIEW THE STANDALONE SCRIPTS AND HOW THEY WILL BE USED ACROSS THE THREE PROJECTS\nREVIEW HOW TO UPDATE THEM WHEN NEEDED",
+    "text": "REVIEW THE STANDALONE SCRIPTS AND HOW THEY WILL BE USED ACROSS THE THREE PROJECTS\nREVIEW HOW TO UPDATE THEM WHEN NEEDED\nhttps://www.danieldsjoberg.com/standalone/",
     "crumbs": [
       "Standalone Scripts"
     ]
@@ -94,7 +114,7 @@
     "href": "09-gtsummary.html",
     "title": "{gtsummary} Overview",
     "section": "",
-    "text": "GIVE BACKGROUND OF gtsummary, ALONG WITH A SMALL BIO ABOUT ME AND HOW THAT LED TO IT\nINCLUDE GRAPH SHOWING gtsummary IS THE MOST DOWNLOADED SUMMARY TABLE FUNCTION\nREVIEW HOW CARDS WILL BE USED TO POWER THE STATISTICAL CALCULATIONS\nREVIEW THE ORGANIZATION OF THE cards, bridge, and pier FUNCTIONS.\nMENTION THAT OUR PRIORITY IS GETTING cards, cardx, and gtsummary UP AND RUNNING. THEN WE WILL MOVE ON TO PUTTING FURTHER INFRASTUCUTRE IN PLACE FOR ALL REG REPORTING.\nMENTION THAT IN THE FUTURE, DECISIONS WE MAKE ABOUT REGULAROTY TABLES CANNOT BREAK gtsummary; THE USER BASE IS TOO LARGE.",
+    "text": "GIVE BACKGROUND OF gtsummary, ALONG WITH A SMALL BIO ABOUT ME AND HOW THAT LED TO IT\nINCLUDE GRAPH SHOWING gtsummary IS THE MOST DOWNLOADED SUMMARY TABLE FUNCTION\nREVIEW HOW CARDS WILL BE USED TO POWER THE STATISTICAL CALCULATIONS\nREVIEW THE ORGANIZATION OF THE cards, bridge, and pier FUNCTIONS.\nMENTION THAT OUR PRIORITY IS GETTING cards, cardx, and gtsummary UP AND RUNNING. THEN WE WILL MOVE ON TO PUTTING FURTHER INFRASTUCUTRE IN PLACE FOR ALL REG REPORTING.\nMENTION THAT IN THE FUTURE, DECISIONS WE MAKE ABOUT REGULAROTY TABLES CANNOT BREAK gtsummary; THE USER BASE IS TOO LARGE.\nThe {cards} package does not present results and this is where the {gtsummary} package shines. The {gtsummary} package offers a modular framework to construct summary tables. The {gtsummary} package is the most widely used package for summary tables in the R ecosystem, and won the American Statistical Association’s 2021 award for Innovation in Statistical Programming and Analytics and it’s currently being refactored with a {cards} backend.\nAfter the update, ARDs will play two important roles in a {gtsummary}.\n\nAn ARD will be a byproduct of every {gtsummary} tables created.\nThe package will also support an ARD-first approach, ingesting the ARD and returning a {gtsummary} table.",
     "crumbs": [
       "gtsummary Overview"
     ]

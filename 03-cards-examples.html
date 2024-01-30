@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -175,7 +209,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#cards" id="toc-cards" class="nav-link active" data-scroll-target="#cards">{cards}</a>
+  <ul class="collapse">
+  <li><a href="#other-functions" id="toc-other-functions" class="nav-link" data-scroll-target="#other-functions">Other Functions</a></li>
+  <li><a href="#error-messaging" id="toc-error-messaging" class="nav-link" data-scroll-target="#error-messaging">Error Messaging</a></li>
+  </ul></li>
+  <li><a href="#list-formula-syntax" id="toc-list-formula-syntax" class="nav-link" data-scroll-target="#list-formula-syntax">List-Formula Syntax</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ddsjoberg/ARD-onboarding/edit/main/03-cards-examples.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ddsjoberg/ARD-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -199,11 +244,137 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>At the heart of the ARS Model lies the Analysis Results Dataset, a standardized format for exchanging and storing analysis results. Imagine it as a neatly organized warehouse where all the crucial information from your clinical trial analysis resides, readily accessible and easy to interpret. The <a href="https://insightsengineering.github.io/cards/">{cards}</a> R package creates ARD from observed data sets, and provides utilities for working with these objects.</p>
+<section id="cards" class="level2">
+<h2 class="anchored" data-anchor-id="cards">{cards}</h2>
+<p>The simplest way to introduce the <a href="https://insightsengineering.github.io/cards/">{cards}</a> R package is with an example of its most basic functionality. In the example below, we are using the ADSL example data set that is included in the package and we are calculating basic summary statistics for continuous variables <code>"AGE"</code> and <code>"BMIBL"</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cards)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ADSL <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ard_continuous</span>(<span class="at">by =</span> ARM, <span class="at">variables =</span> <span class="fu">c</span>(AGE, BMIBL))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>{cards} data frame: 48 x 10</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   group1 group1_level variable stat_name stat_label statistic
+1     ARM      Placebo      AGE         N          N        86
+2     ARM      Placebo      AGE      mean       Mean    75.209
+3     ARM      Placebo      AGE        sd         SD      8.59
+4     ARM      Placebo      AGE    median     Median        76
+5     ARM      Placebo      AGE       p25  25th Per…        69
+6     ARM      Placebo      AGE       p75  75th Per…        82
+7     ARM      Placebo      AGE       min        Min        52
+8     ARM      Placebo      AGE       max        Max        89
+9     ARM      Placebo    BMIBL         N          N        86
+10    ARM      Placebo    BMIBL      mean       Mean    23.636</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ 38 more rows</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ 4 more variables: context, statistic_fmt_fn, warning, error</code></pre>
+</div>
+</div>
+<p>A few items to note from this result: - The default statistics returned are N, Mean, Standard Deviation, Median, 25th and 75th percentiles, and the minimum and maximum: these can be modified to use <em>any</em> univariate statistic whether that function is user-defined or from another package.</p>
 <ul>
-<li>GIVE OVERVIEW OF THE CURRENT FUNCTIONS IN {cards}</li>
+<li><p>These results are calculated by the treatment arm. There is, however, no requirement to include the <code>ard_continuous(by)</code> argument.</p></li>
+<li><p>Any unobserved levels of the <code>by=</code> column(s), whether that is unobserved combinations of the <code>by=</code> variables or unobserved factor levels, will appear in the returned ARD table.</p></li>
+<li><p>The results are returned in a structured data frame common among all <code>ard_*()</code> functions.</p></li>
 </ul>
+<p>There exists similar functionality for categorical data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ard_categorical</span>(ADSL, <span class="at">by =</span> ARM, <span class="at">variables =</span> AGEGR1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>{cards} data frame: 27 x 11</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   group1 group1_level variable variable_level stat_name stat_label statistic
+1     ARM      Placebo   AGEGR1            &lt;65         n          n        14
+2     ARM      Placebo   AGEGR1            &lt;65         N          N        86
+3     ARM      Placebo   AGEGR1            &lt;65         p          %     0.163
+4     ARM    Xanomeli…   AGEGR1            &lt;65         n          n        11
+5     ARM    Xanomeli…   AGEGR1            &lt;65         N          N        84
+6     ARM    Xanomeli…   AGEGR1            &lt;65         p          %     0.131
+7     ARM    Xanomeli…   AGEGR1            &lt;65         n          n         8
+8     ARM    Xanomeli…   AGEGR1            &lt;65         N          N        84
+9     ARM    Xanomeli…   AGEGR1            &lt;65         p          %     0.095
+10    ARM      Placebo   AGEGR1            &gt;80         n          n        30</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ 17 more rows</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ 4 more variables: context, statistic_fmt_fn, warning, error</code></pre>
+</div>
+</div>
+<p>As a result of the common structure between this result and the continuous variable summary above, these two data frames can be combined with <code>bind_ard()</code>. The <code>bind_ard()</code> function is similar to <code>dplyr::bind_rows()</code>, and includes a few structural checks found in our ARD data frames, e.g.&nbsp;if we combine two ARDs with duplicate statistics, the function will notify us that the ARD no longer contains unique statistics.</p>
+<section id="other-functions" class="level3">
+<h3 class="anchored" data-anchor-id="other-functions">Other Functions</h3>
+<p>The {cards} package also exports functions for tabulating hierarchical data–structures common for adverse event reporting, missing data, and attributes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cards<span class="sc">::</span><span class="fu">ard_hierarchical</span>()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>cards<span class="sc">::</span><span class="fu">ard_hierarchical_count</span>()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>cards<span class="sc">::</span><span class="fu">ard_missing</span>()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>cards<span class="sc">::</span><span class="fu">ard_attributes</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Lastly, I wanted to mention the <code>cards::ard_complex()</code> continuous function. This function is similar to <code>ard_continuous()</code> with an important distinction: rather than performing strictly univariate summaries (e.g.&nbsp;<code>mean(x)</code>, <code>median(x)</code>), the <code>ard_complex()</code> function uses summary functions that accept <code>x</code> (like <code>ard_continuous()</code> summary functions), the full data frame, and the data frame subset by the by/strata variables.</p>
+</section>
+<section id="error-messaging" class="level3">
+<h3 class="anchored" data-anchor-id="error-messaging">Error Messaging</h3>
+<p>It is common that errors or warnings may be return by functions performing these calculations. The <a href="https://insightsengineering.github.io/cards/">{cards}</a> package will continue to return a data frame of the expected structure. Where a statistic that could not be calculate would have appeared, we will now see a <code>NULL</code> value and the error will be captured and returned as text in the <code>"error"</code> column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mean_with_error <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">"There was an error calculating the mean."</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>ard_with_error <span class="ot">&lt;-</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ard_continuous</span>(</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    ADSL, </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> AGE, </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistics =</span> <span class="sc">~</span><span class="fu">list</span>(<span class="at">mean =</span> mean_with_error)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>ard_with_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>{cards} data frame: 1 x 8</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  variable   context stat_name stat_label statistic     error
+1      AGE continuo…      mean       Mean      NULL There wa…</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ 2 more variables: statistic_fmt_fn, warning</code></pre>
+</div>
+</div>
+<p>The <a href="https://insightsengineering.github.io/cards/">{cards}</a> package exports many utilities for working with ARDs. The example below is a utility to print any errors or warnings that may have occurred while calculating the statistics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_ard_conditions</span>(ard_with_error)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following errors were returned while calculating statistics:
+✖ For variable `AGE` and "mean" statistic: There was an error calculating the
+  mean.</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="list-formula-syntax" class="level2">
+<h2 class="anchored" data-anchor-id="list-formula-syntax">List-Formula Syntax</h2>
+<p>Many functions in {cards}, {cardx}, and {gtsummary} have arguments that accept a list-formula syntax, e.g.&nbsp;<code>ard_continuous(statistics)</code>. The syntax is explained in detail here: https://insightsengineering.github.io/cards/reference/syntax.html</p>
+<p>Briefly, these arguments accept a few different structures that are processed into a named list using <code>cards::process_formula_selectors()</code>. The two most common are:</p>
+<ol type="1">
+<li><p><strong>Named List</strong>: Named lists are returned as they were passed, unaltered.</p></li>
+<li><p><strong>List of Formulas</strong>: This may look something like, <code>list(everything() ~ '&lt;value&gt;')</code> or <code>list(AGE ~ 'value', starts_with("BM") ~ 'value')</code>. Everything on the LHS of the formula is processed with {tidyselect} and flattened to a named list.</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -613,7 +784,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/ddsjoberg/ARD-onboarding/edit/main/03-cards-examples.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ddsjoberg/ARD-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ddsjoberg/ARD-onboarding/edit/main/03-cards-examples.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ddsjoberg/ARD-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
