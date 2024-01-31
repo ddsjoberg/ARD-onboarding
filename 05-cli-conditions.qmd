@@ -7,6 +7,18 @@ Slides from [Hadley Wickham's Masterclass for R Package Development](https://git
 
 {{< pdf images/2-errors-snapshots.pdf width=100% height=800 >}}
 
+### Testing Error Messages
+
+There are various ways to check appropriate error messaging, and snapshot testing is my favorite.
+This ensures the exact error you're planning for is the one returned.
+
+```r
+expect_snapshot(
+  error = TRUE, 
+  <expr>
+)
+```
+
 ### Note about the future
 
 We have a somewhat complex messaging situation. {cards} functions are going to be called from {cardx} and {gtsummary}: in these cases, we want the user to be messaged about the function they ran, even if the error is thrown from {cards}.
