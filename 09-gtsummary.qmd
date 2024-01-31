@@ -25,4 +25,12 @@ After the update, ARDs will play two important roles in a [{gtsummary}](https://
 
 ![](images/ard-gtsummary-workflow.png){fig-align="left"}
 
+### ARD to Table
+
+The graphic below illustrates quite generally the approach we'll take converting an ARD object created with {cards} to a {gtsummary} table.
+
+- `brdge_*()`: Bridge functions take the ARD table and create the {gtsummary} table. Primarily, this involves creating the underlying `.$table_body` data frame that is printed as the table.
+
+- `pier_*()`: Piers support bridges, and these functions do the same for the bridge functions. For example, a `tbl_summary()` table generally is comprised of conituous, categorical, and dichotomous summaries. Each of these types has an associated `pier_*()` function to tidy those results.
+
 ![](images/gtsummary-bridge.png)

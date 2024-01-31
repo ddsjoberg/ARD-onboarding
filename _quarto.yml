@@ -48,6 +48,8 @@ website:
        text: cardx Overview
      - href: 09-gtsummary.qmd
        text: gtsummary Overview
+     - href: 10-whats-next.qmd
+       text: What's Next?
      - href: license.qmd
 
 format:

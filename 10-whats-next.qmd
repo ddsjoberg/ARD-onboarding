@@ -1,0 +1,18 @@
+---
+title: "What's Next?"
+editor: source
+---
+
+### Priorities
+
+1. Get the {cards} R package in a place to make it's first release. Focus on the GitHub issues tagged with `v0.1.0` in the {cards} repo.
+
+1. Add `cardx::ard_*()` functions to support the functionality currently available in {gtsummary}. Focus on the GitHub issues tagged with `gtsummary` in the {cardx} repo.
+
+1. Finalize the additional features we wish to include in {gtsummary}, and implement these features in the package.
+
+1. Migrate all existing {gtsummary} to the new structure, and make the {gtsummary} v2.0 release.
+
+1. Add `cardx::ard_*()` functions to calculate the statistics needed in the TLG catalog.
+
+1. Build templates using our workflow for each of the TLGs in our catalog.
