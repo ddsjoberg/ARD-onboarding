@@ -19,7 +19,9 @@ ADSL |>
   ard_continuous(by = ARM, variables = c(AGE, BMIBL))
 ```
 
-A few items to note from this result: - The default statistics returned are N, Mean, Standard Deviation, Median, 25th and 75th percentiles, and the minimum and maximum: these can be modified to use *any* univariate statistic whether that function is user-defined or from another package.
+A few items to note from this result: 
+
+- The default statistics returned are N, Mean, Standard Deviation, Median, 25th and 75th percentiles, and the minimum and maximum: these can be modified to use *any* univariate statistic whether that function is user-defined or from another package.
 
 - These results are calculated by the treatment arm. There is, however, no requirement to include the `ard_continuous(by)` argument.
 

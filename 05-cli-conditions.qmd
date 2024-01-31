@@ -3,14 +3,51 @@ title: "Error Messaging"
 editor: source
 ---
 
-- OVERVIEW OF OUR ERROR MESSAGING STRATEGY
-
-- GIVE EXAMPLES OF THE AMAZING {cli} TOOLS
-
-- REVIEW THE `cli::cli_abort(call)` ARGUMENT AND HOW IT AFFECTS MESSAGING.
-
-- DO WE IMPLEMENT THE PROPOSED setting of the env when the function is called? I think it's a good idea, but as it's brand new, there could be kinks that need ironing out that I don't know about. I do want to implement, and perhaps it's easier to do it before we onbaord everyone.
-
 Slides from [Hadley Wickham's Masterclass for R Package Development](https://github.com/posit-conf-2023/pkg-dev-masterclass)
 
 {{< pdf images/2-errors-snapshots.pdf width=100% height=800 >}}
+
+### Note about the future
+
+We have a somewhat complex messaging situation. {cards} functions are going to be called from {cardx} and {gtsummary}: in these cases, we want the user to be messaged about the function they ran, even if the error is thrown from {cards}.
+
+In the near future, we'll be implementing something like this:
+
+``` r
+# set this function at the top of a user-facing function
+set_cli_abort_call <- function(env = rlang::caller_env()) {
+  if (getOption("cli_abort_call") |> is.null()) {
+    options(cli_abort_call = env)
+    withr::defer(expr = options(cli_abort_call = NULL), envir = env)
+  }
+  invisible()
+}
+
+# use this function in `cli_abort(call=get_cli_abort_call())`
+get_cli_abort_call <- function() {
+  getOption("cli_abort_call", default = parent.frame())
+}
+
+# function called by user
+user_facing_function <- function() {
+  set_cli_abort_call()
+  check_for_errors()
+}
+
+# an internal function OR exported function from another pkg that throws the error
+check_for_errors <- function() {
+  cli::cli_abort(c("!" = "This is an error!", "i" = "Be better"), call = get_cli_abort_call())
+}
+
+# this exhibits the user experience
+user_facing_function()
+#> Error in `user_facing_function()`:
+#> ! This is an error!
+#> ℹ Be better
+
+# check the default still work when no option is set
+check_for_errors()
+#> Error in `check_for_errors()`:
+#> ! This is an error!
+#> ℹ Be better
+```

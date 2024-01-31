@@ -25,3 +25,8 @@ cards::ADSL |>
 
 The utilities allow us to return, not only the results of the t-test, but rows for each of the arguments.
 This allows us to both report the results, and also in a re-use case, know exactly how the results were calculated, e.g. assuming equal variances, the level of the confidence interval, etc.
+
+For our ARD work, we will take advantage of the {broom} package **and** we will use the naming conventions there.
+The {broom} package get 500K+ installs every month.
+With an enormous user base, we cna be confident in the results.
+ 

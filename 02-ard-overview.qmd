@@ -3,7 +3,8 @@ title: "ARD Overview"
 editor: source
 ---
 
+![](images/ARS Model Overview.png)
 
-- DISCUSSION ON WHAT ARDs ARE BASED ON THE CDISC PRESENTATION.
+#### We all watched the video...what do you think?
 
-- Since every will have already watched the video, perhaps we can have a brief conversation about them as a group.
+![](images/talk-amongst-yourselves-mike-myers.gif)
