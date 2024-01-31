@@ -279,8 +279,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>ℹ 4 more variables: context, statistic_fmt_fn, warning, error</code></pre>
 </div>
 </div>
-<p>A few items to note from this result: - The default statistics returned are N, Mean, Standard Deviation, Median, 25th and 75th percentiles, and the minimum and maximum: these can be modified to use <em>any</em> univariate statistic whether that function is user-defined or from another package.</p>
+<p>A few items to note from this result:</p>
 <ul>
+<li><p>The default statistics returned are N, Mean, Standard Deviation, Median, 25th and 75th percentiles, and the minimum and maximum: these can be modified to use <em>any</em> univariate statistic whether that function is user-defined or from another package.</p></li>
 <li><p>These results are calculated by the treatment arm. There is, however, no requirement to include the <code>ard_continuous(by)</code> argument.</p></li>
 <li><p>Any unobserved levels of the <code>by=</code> column(s), whether that is unobserved combinations of the <code>by=</code> variables or unobserved factor levels, will appear in the returned ARD table.</p></li>
 <li><p>The results are returned in a structured data frame common among all <code>ard_*()</code> functions.</p></li>

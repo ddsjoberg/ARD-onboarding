@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -199,9 +233,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>REVIEW THE STANDALONE SCRIPTS AND HOW THEY WILL BE USED ACROSS THE THREE PROJECTS</p>
-<p>REVIEW HOW TO UPDATE THEM WHEN NEEDED</p>
-<p>https://www.danieldsjoberg.com/standalone/</p>
+<p>The package utilizes a few standalone scripts that are used across a few projects, including {cards}, {cardx}, and {gtsummary}. Some of these scripts make available shims for common tidyverse functions, so you can use the function without depending on the package. The <code>"checks"</code> script is a series of functions to check the argument values supplied by users, and provides informative error messages when the values are not valid. Do not make changes to these files directly: rather, update these files in their source location.</p>
+<ul>
+<li><code>import-standalone-purrr.R</code>: https://github.com/r-lib/rlang/blob/main/R/standalone-purrr.R</li>
+<li><code>import-standalone-forcats.R</code> https://github.com/ddsjoberg/standalone/blob/main/R/standalone-forcats.R</li>
+<li><code>import-standalone-stringr.R</code> https://github.com/ddsjoberg/standalone/blob/main/R/standalone-stringr.R</li>
+<li><code>import-standalone-checks.R</code> https://github.com/ddsjoberg/standalone/blob/main/R/standalone-checks.R</li>
+</ul>
+<p>After the update has been made, you can copy the file into the repo with</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_standalone</span>(<span class="st">"r-lib/rlang"</span>, <span class="at">file =</span> <span class="st">"purrr"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_standalone</span>(<span class="st">"ddsjoberg/standalone"</span>, <span class="at">file =</span> <span class="st">"forcats"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_standalone</span>(<span class="st">"ddsjoberg/standalone"</span>, <span class="at">file =</span> <span class="st">"stringr"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_standalone</span>(<span class="st">"ddsjoberg/standalone"</span>, <span class="at">file =</span> <span class="st">"checks"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 
