@@ -10,53 +10,33 @@
     ]
   },
   {
-    "objectID": "08-cardx.html",
-    "href": "08-cardx.html",
-    "title": "{cardx} Overview",
+    "objectID": "09-gtsummary.html",
+    "href": "09-gtsummary.html",
+    "title": "{gtsummary} Overview",
     "section": "",
-    "text": "REVIEW THE PURPOSE OF cardx\nREVIEW AN EXAMPLE OF USING THE cards UTILITIES TO CREATE NEW ARDs\nSAY SOMETHING ABOUT VALUING the {broom} PACKAGE. NO NEED TO REPLICATE THE WORK ALREADY DONE AND BEING USED BY TENS OF THOUSANDS. USE broom, USE THEIR NAMING CONVENTIONS.\nThe {cards} package exports many utilities for working with ARD objects. Additionally, {cards} exports utilities for creating new ard_*() functions. The {cardx} package takes advantage of this infrastructure, and exports many other functions for creating more complex ARD objects.\nUtilizing these utilities from {cards}, we can easily create a function to prepare the results from a t-test.\n\ncards::ADSL |&gt; \n  # keep two treatment arms for the t-test calculation\n  dplyr::filter(ARM %in% c(\"Placebo\", \"Xanomeline High Dose\")) |&gt; \n  cardx::ard_ttest(by = ARM, variable = AGE)\n\n{cards} data frame: 14 x 9\n\n\n   group1 variable context   stat_name stat_label statistic\n1     ARM      AGE   ttest    estimate  Mean Dif…     0.828\n2     ARM      AGE   ttest   estimate1  Group 1 …    75.209\n3     ARM      AGE   ttest   estimate2  Group 2 …    74.381\n4     ARM      AGE   ttest   statistic  t Statis…     0.655\n5     ARM      AGE   ttest     p.value    p-value     0.513\n6     ARM      AGE   ttest   parameter  Degrees …   167.362\n7     ARM      AGE   ttest    conf.low  CI Lower…    -1.668\n8     ARM      AGE   ttest   conf.high  CI Upper…     3.324\n9     ARM      AGE   ttest      method     method Welch Tw…\n10    ARM      AGE   ttest alternative  alternat… two.sided\n11    ARM      AGE   ttest          mu    H0 Mean         0\n12    ARM      AGE   ttest      paired  Paired t…     FALSE\n13    ARM      AGE   ttest   var.equal  Equal Va…     FALSE\n14    ARM      AGE   ttest  conf.level  CI Confi…      0.95\n\n\nℹ 3 more variables: statistic_fmt_fn, warning, error\n\n\nThe utilities allow us to return, not only the results of the t-test, but rows for each of the arguments. This allows us to both report the results, and also in a re-use case, know exactly how the results were calculated, e.g. assuming equal variances, the level of the confidence interval, etc.\nFor our ARD work, we will take advantage of the {broom} package and we will use the naming conventions there. The {broom} package get 500K+ installs every month. With an enormous user base, we cna be confident in the results.",
+    "text": "GIVE BACKGROUND OF gtsummary, ALONG WITH A SMALL BIO ABOUT ME AND HOW THAT LED TO IT\nINCLUDE GRAPH SHOWING gtsummary IS THE MOST DOWNLOADED SUMMARY TABLE FUNCTION\nREVIEW HOW CARDS WILL BE USED TO POWER THE STATISTICAL CALCULATIONS\nREVIEW THE ORGANIZATION OF THE cards, bridge, and pier FUNCTIONS.\nMENTION THAT OUR PRIORITY IS GETTING cards, cardx, and gtsummary UP AND RUNNING. THEN WE WILL MOVE ON TO PUTTING FURTHER INFRASTUCUTRE IN PLACE FOR ALL REG REPORTING.\nMENTION THAT IN THE FUTURE, DECISIONS WE MAKE ABOUT REGULAROTY TABLES CANNOT BREAK gtsummary; THE USER BASE IS TOO LARGE.\nThe {cards} package does not present results and this is where the {gtsummary} package shines. The {gtsummary} package offers a modular framework to construct summary tables. The {gtsummary} package is the most widely used package for summary tables in the R ecosystem, and won the American Statistical Association’s 2021 award for Innovation in Statistical Programming and Analytics and it’s currently being refactored with a {cards} backend.\nAfter the update, ARDs will play two important roles in a {gtsummary}.\n\nAn ARD will be a byproduct of every {gtsummary} tables created.\nThe package will also support an ARD-first approach, ingesting the ARD and returning a {gtsummary} table.\n\n\n\n\n\n\n\nARD to Table\nThe graphic below illustrates quite generally the approach we’ll take converting an ARD object created with {cards} to a {gtsummary} table.\n\nbrdge_*(): Bridge functions take the ARD table and create the {gtsummary} table. Primarily, this involves creating the underlying .$table_body data frame that is printed as the table.\npier_*(): Piers support bridges, and these functions do the same for the bridge functions. For example, a tbl_summary() table generally is comprised of conituous, categorical, and dichotomous summaries. Each of these types has an associated pier_*() function to tidy those results.",
     "crumbs": [
-      "cardx Overview"
+      "gtsummary Overview"
     ]
   },
   {
-    "objectID": "06-helper-functions.html",
-    "href": "06-helper-functions.html",
-    "title": "Internal Utility Functions",
+    "objectID": "07-standalone-scripts.html",
+    "href": "07-standalone-scripts.html",
+    "title": "Standalone Scripts",
     "section": "",
-    "text": "Internal Utility Functions\nFor non-exported utility functions, there are a few guidelines to follow:\n\nAll function names begin with a period, e.g. .nonexported_utility().\nAny function that does any non-trivial operation must be documented with roxygen comments.\n\n\n\nPull Request Template\n**What changes are proposed in this pull request?**\n* Style this entry in a way that can be copied directly into `NEWS.md`. (#1, @ddsjoberg)\n\n**Reference GitHub issue associated with pull request.** _e.g., 'closes #1'_\n\n\n--------------------------------------------------------------------------------\n\nPre-review Checklist (if item does not apply, mark is as complete)\n- [ ] **All** GitHub Action workflows pass with a :white_check_mark:\n- [ ] PR branch has pulled the most recent updates from master branch: `usethis::pr_merge_main()`\n- [ ] If a bug was fixed, a unit test was added.\n- [ ] Code coverage is suitable for any new functions/features (generally, 100% coverage for new code): `devtools::test_coverage()`\n\nReviewer Checklist (if item does not apply, mark is as complete)\n\n- [ ] If a bug was fixed, a unit test was added.\n- [ ] Run `pkgdown::build_site()`. Check the R console for errors, and review the rendered website.\n- [ ] Code coverage is suitable for any new functions/features: `devtools::test_coverage()`\n- [ ] Request a reviewer\n\nWhen the branch is ready to be merged:\n- [ ] Update `NEWS.md` with the changes from this pull request under the heading \"`# cards (development version)`\". If there is an issue associated with the pull request, reference it in parentheses at the end update (see `NEWS.md` for examples).\n- [ ] Increment the version number using `usethis::use_version(which = \"dev\")`\n- [ ] Run `usethis::use_spell_check()` again\n- [ ] Approve Pull Request\n- [ ] Merge the PR. Please use \"Squash and merge\" or \"Rebase and merge\".",
+    "text": "The package utilizes a few standalone scripts that are used across a few projects, including {cards}, {cardx}, and {gtsummary}. Some of these scripts make available shims for common tidyverse functions, so you can use the function without depending on the package. The \"checks\" script is a series of functions to check the argument values supplied by users, and provides informative error messages when the values are not valid. Do not make changes to these files directly: rather, update these files in their source location.\n\nimport-standalone-purrr.R: https://github.com/r-lib/rlang/blob/main/R/standalone-purrr.R\nimport-standalone-forcats.R https://github.com/ddsjoberg/standalone/blob/main/R/standalone-forcats.R\nimport-standalone-stringr.R https://github.com/ddsjoberg/standalone/blob/main/R/standalone-stringr.R\nimport-standalone-checks.R https://github.com/ddsjoberg/standalone/blob/main/R/standalone-checks.R\n\nAfter the update has been made, you can copy the file into the repo with\nusethis::use_standalone(\"r-lib/rlang\", file = \"purrr\")\nusethis::use_standalone(\"ddsjoberg/standalone\", file = \"forcats\")\nusethis::use_standalone(\"ddsjoberg/standalone\", file = \"stringr\")\nusethis::use_standalone(\"ddsjoberg/standalone\", file = \"checks\")",
     "crumbs": [
-      "Helper Functions"
+      "Standalone Scripts"
     ]
   },
   {
-    "objectID": "04-cards-internals.html",
-    "href": "04-cards-internals.html",
-    "title": "{cards} Internals",
+    "objectID": "05-cli-conditions.html",
+    "href": "05-cli-conditions.html",
+    "title": "Error Messaging",
     "section": "",
-    "text": "Utilities for creating ARDs, everything listed under https://insightsengineering.github.io/cards/reference/index.html#construct-ards\n\nThe basic cards::ard_*() can also be used to construct bespoke ARDs of different flavors\n\nUtilities for working with ARDs, everything listed under https://insightsengineering.github.io/cards/reference/index.html#wrangle-ard",
+    "text": "Slides from Hadley Wickham’s Masterclass for R Package Development\nUnable to display PDF file. Download instead.\n\nNote about the future\nWe have a somewhat complex messaging situation. {cards} functions are going to be called from {cardx} and {gtsummary}: in these cases, we want the user to be messaged about the function they ran, even if the error is thrown from {cards}.\nIn the near future, we’ll be implementing something like this:\n# set this function at the top of a user-facing function\nset_cli_abort_call &lt;- function(env = rlang::caller_env()) {\n  if (getOption(\"cli_abort_call\") |&gt; is.null()) {\n    options(cli_abort_call = env)\n    withr::defer(expr = options(cli_abort_call = NULL), envir = env)\n  }\n  invisible()\n}\n\n# use this function in `cli_abort(call=get_cli_abort_call())`\nget_cli_abort_call &lt;- function() {\n  getOption(\"cli_abort_call\", default = parent.frame())\n}\n\n# function called by user\nuser_facing_function &lt;- function() {\n  set_cli_abort_call()\n  check_for_errors()\n}\n\n# an internal function OR exported function from another pkg that throws the error\ncheck_for_errors &lt;- function() {\n  cli::cli_abort(c(\"!\" = \"This is an error!\", \"i\" = \"Be better\"), call = get_cli_abort_call())\n}\n\n# this exhibits the user experience\nuser_facing_function()\n#&gt; Error in `user_facing_function()`:\n#&gt; ! This is an error!\n#&gt; ℹ Be better\n\n# check the default still work when no option is set\ncheck_for_errors()\n#&gt; Error in `check_for_errors()`:\n#&gt; ! This is an error!\n#&gt; ℹ Be better",
     "crumbs": [
-      "cards for Developers"
-    ]
-  },
-  {
-    "objectID": "02-ard-overview.html",
-    "href": "02-ard-overview.html",
-    "title": "ARD Overview",
-    "section": "",
-    "text": "We all watched the video…what do you think?",
-    "crumbs": [
-      "ARD Overview"
-    ]
-  },
-  {
-    "objectID": "01-plan.html",
-    "href": "01-plan.html",
-    "title": "Plan Overview",
-    "section": "",
-    "text": "We’ll be focusing on {cards}, {cardx}, and {gtsummary}\nThen we can move on to migrating other tern::s_*() functionality into {cardx}",
-    "crumbs": [
-      "Plan Overview"
+      "Error Messaging"
     ]
   },
   {
@@ -90,33 +70,63 @@
     ]
   },
   {
-    "objectID": "05-cli-conditions.html",
-    "href": "05-cli-conditions.html",
-    "title": "Error Messaging",
+    "objectID": "01-plan.html",
+    "href": "01-plan.html",
+    "title": "Plan Overview",
     "section": "",
-    "text": "Slides from Hadley Wickham’s Masterclass for R Package Development\nUnable to display PDF file. Download instead.\n\nNote about the future\nWe have a somewhat complex messaging situation. {cards} functions are going to be called from {cardx} and {gtsummary}: in these cases, we want the user to be messaged about the function they ran, even if the error is thrown from {cards}.\nIn the near future, we’ll be implementing something like this:\n# set this function at the top of a user-facing function\nset_cli_abort_call &lt;- function(env = rlang::caller_env()) {\n  if (getOption(\"cli_abort_call\") |&gt; is.null()) {\n    options(cli_abort_call = env)\n    withr::defer(expr = options(cli_abort_call = NULL), envir = env)\n  }\n  invisible()\n}\n\n# use this function in `cli_abort(call=get_cli_abort_call())`\nget_cli_abort_call &lt;- function() {\n  getOption(\"cli_abort_call\", default = parent.frame())\n}\n\n# function called by user\nuser_facing_function &lt;- function() {\n  set_cli_abort_call()\n  check_for_errors()\n}\n\n# an internal function OR exported function from another pkg that throws the error\ncheck_for_errors &lt;- function() {\n  cli::cli_abort(c(\"!\" = \"This is an error!\", \"i\" = \"Be better\"), call = get_cli_abort_call())\n}\n\n# this exhibits the user experience\nuser_facing_function()\n#&gt; Error in `user_facing_function()`:\n#&gt; ! This is an error!\n#&gt; ℹ Be better\n\n# check the default still work when no option is set\ncheck_for_errors()\n#&gt; Error in `check_for_errors()`:\n#&gt; ! This is an error!\n#&gt; ℹ Be better",
+    "text": "We’ll be focusing on {cards}, {cardx}, and {gtsummary}\nThen we can move on to migrating other tern::s_*() functionality into {cardx}",
     "crumbs": [
-      "Error Messaging"
+      "Plan Overview"
     ]
   },
   {
-    "objectID": "07-standalone-scripts.html",
-    "href": "07-standalone-scripts.html",
-    "title": "Standalone Scripts",
+    "objectID": "02-ard-overview.html",
+    "href": "02-ard-overview.html",
+    "title": "ARD Overview",
     "section": "",
-    "text": "The package utilizes a few standalone scripts that are used across a few projects, including {cards}, {cardx}, and {gtsummary}. Some of these scripts make available shims for common tidyverse functions, so you can use the function without depending on the package. The \"checks\" script is a series of functions to check the argument values supplied by users, and provides informative error messages when the values are not valid. Do not make changes to these files directly: rather, update these files in their source location.\n\nimport-standalone-purrr.R: https://github.com/r-lib/rlang/blob/main/R/standalone-purrr.R\nimport-standalone-forcats.R https://github.com/ddsjoberg/standalone/blob/main/R/standalone-forcats.R\nimport-standalone-stringr.R https://github.com/ddsjoberg/standalone/blob/main/R/standalone-stringr.R\nimport-standalone-checks.R https://github.com/ddsjoberg/standalone/blob/main/R/standalone-checks.R\n\nAfter the update has been made, you can copy the file into the repo with\nusethis::use_standalone(\"r-lib/rlang\", file = \"purrr\")\nusethis::use_standalone(\"ddsjoberg/standalone\", file = \"forcats\")\nusethis::use_standalone(\"ddsjoberg/standalone\", file = \"stringr\")\nusethis::use_standalone(\"ddsjoberg/standalone\", file = \"checks\")",
+    "text": "We all watched the video…what do you think?",
     "crumbs": [
-      "Standalone Scripts"
+      "ARD Overview"
     ]
   },
   {
-    "objectID": "09-gtsummary.html",
-    "href": "09-gtsummary.html",
-    "title": "{gtsummary} Overview",
+    "objectID": "04-cards-internals.html",
+    "href": "04-cards-internals.html",
+    "title": "{cards} Internals",
     "section": "",
-    "text": "GIVE BACKGROUND OF gtsummary, ALONG WITH A SMALL BIO ABOUT ME AND HOW THAT LED TO IT\nINCLUDE GRAPH SHOWING gtsummary IS THE MOST DOWNLOADED SUMMARY TABLE FUNCTION\nREVIEW HOW CARDS WILL BE USED TO POWER THE STATISTICAL CALCULATIONS\nREVIEW THE ORGANIZATION OF THE cards, bridge, and pier FUNCTIONS.\nMENTION THAT OUR PRIORITY IS GETTING cards, cardx, and gtsummary UP AND RUNNING. THEN WE WILL MOVE ON TO PUTTING FURTHER INFRASTUCUTRE IN PLACE FOR ALL REG REPORTING.\nMENTION THAT IN THE FUTURE, DECISIONS WE MAKE ABOUT REGULAROTY TABLES CANNOT BREAK gtsummary; THE USER BASE IS TOO LARGE.\nThe {cards} package does not present results and this is where the {gtsummary} package shines. The {gtsummary} package offers a modular framework to construct summary tables. The {gtsummary} package is the most widely used package for summary tables in the R ecosystem, and won the American Statistical Association’s 2021 award for Innovation in Statistical Programming and Analytics and it’s currently being refactored with a {cards} backend.\nAfter the update, ARDs will play two important roles in a {gtsummary}.\n\nAn ARD will be a byproduct of every {gtsummary} tables created.\nThe package will also support an ARD-first approach, ingesting the ARD and returning a {gtsummary} table.",
+    "text": "Utilities for creating ARDs, everything listed under https://insightsengineering.github.io/cards/reference/index.html#construct-ards\n\nThe basic cards::ard_*() can also be used to construct bespoke ARDs of different flavors\n\nUtilities for working with ARDs, everything listed under https://insightsengineering.github.io/cards/reference/index.html#wrangle-ard",
     "crumbs": [
-      "gtsummary Overview"
+      "cards for Developers"
+    ]
+  },
+  {
+    "objectID": "06-helper-functions.html",
+    "href": "06-helper-functions.html",
+    "title": "Internal Utility Functions",
+    "section": "",
+    "text": "Internal Utility Functions\nFor non-exported utility functions, there are a few guidelines to follow:\n\nAll function names begin with a period, e.g. .nonexported_utility().\nAny function that does any non-trivial operation must be documented with roxygen comments.\n\n\n\nPull Request Template\n**What changes are proposed in this pull request?**\n* Style this entry in a way that can be copied directly into `NEWS.md`. (#1, @ddsjoberg)\n\n**Reference GitHub issue associated with pull request.** _e.g., 'closes #1'_\n\n\n--------------------------------------------------------------------------------\n\nPre-review Checklist (if item does not apply, mark is as complete)\n- [ ] **All** GitHub Action workflows pass with a :white_check_mark:\n- [ ] PR branch has pulled the most recent updates from master branch: `usethis::pr_merge_main()`\n- [ ] If a bug was fixed, a unit test was added.\n- [ ] Code coverage is suitable for any new functions/features (generally, 100% coverage for new code): `devtools::test_coverage()`\n\nReviewer Checklist (if item does not apply, mark is as complete)\n\n- [ ] If a bug was fixed, a unit test was added.\n- [ ] Run `pkgdown::build_site()`. Check the R console for errors, and review the rendered website.\n- [ ] Code coverage is suitable for any new functions/features: `devtools::test_coverage()`\n- [ ] Request a reviewer\n\nWhen the branch is ready to be merged:\n- [ ] Update `NEWS.md` with the changes from this pull request under the heading \"`# cards (development version)`\". If there is an issue associated with the pull request, reference it in parentheses at the end update (see `NEWS.md` for examples).\n- [ ] Increment the version number using `usethis::use_version(which = \"dev\")`\n- [ ] Run `usethis::use_spell_check()` again\n- [ ] Approve Pull Request\n- [ ] Merge the PR. Please use \"Squash and merge\" or \"Rebase and merge\".",
+    "crumbs": [
+      "Helper Functions"
+    ]
+  },
+  {
+    "objectID": "08-cardx.html",
+    "href": "08-cardx.html",
+    "title": "{cardx} Overview",
+    "section": "",
+    "text": "REVIEW THE PURPOSE OF cardx\nREVIEW AN EXAMPLE OF USING THE cards UTILITIES TO CREATE NEW ARDs\nSAY SOMETHING ABOUT VALUING the {broom} PACKAGE. NO NEED TO REPLICATE THE WORK ALREADY DONE AND BEING USED BY TENS OF THOUSANDS. USE broom, USE THEIR NAMING CONVENTIONS.\nThe {cards} package exports many utilities for working with ARD objects. Additionally, {cards} exports utilities for creating new ard_*() functions. The {cardx} package takes advantage of this infrastructure, and exports many other functions for creating more complex ARD objects.\nUtilizing these utilities from {cards}, we can easily create a function to prepare the results from a t-test.\n\ncards::ADSL |&gt; \n  # keep two treatment arms for the t-test calculation\n  dplyr::filter(ARM %in% c(\"Placebo\", \"Xanomeline High Dose\")) |&gt; \n  cardx::ard_ttest(by = ARM, variable = AGE)\n\n{cards} data frame: 14 x 9\n\n\n   group1 variable context   stat_name stat_label statistic\n1     ARM      AGE   ttest    estimate  Mean Dif…     0.828\n2     ARM      AGE   ttest   estimate1  Group 1 …    75.209\n3     ARM      AGE   ttest   estimate2  Group 2 …    74.381\n4     ARM      AGE   ttest   statistic  t Statis…     0.655\n5     ARM      AGE   ttest     p.value    p-value     0.513\n6     ARM      AGE   ttest   parameter  Degrees …   167.362\n7     ARM      AGE   ttest    conf.low  CI Lower…    -1.668\n8     ARM      AGE   ttest   conf.high  CI Upper…     3.324\n9     ARM      AGE   ttest      method     method Welch Tw…\n10    ARM      AGE   ttest alternative  alternat… two.sided\n11    ARM      AGE   ttest          mu    H0 Mean         0\n12    ARM      AGE   ttest      paired  Paired t…     FALSE\n13    ARM      AGE   ttest   var.equal  Equal Va…     FALSE\n14    ARM      AGE   ttest  conf.level  CI Confi…      0.95\n\n\nℹ 3 more variables: statistic_fmt_fn, warning, error\n\n\nThe utilities allow us to return, not only the results of the t-test, but rows for each of the arguments. This allows us to both report the results, and also in a re-use case, know exactly how the results were calculated, e.g. assuming equal variances, the level of the confidence interval, etc.\nFor our ARD work, we will take advantage of the {broom} package and we will use the naming conventions there. The {broom} package get 500K+ installs every month. With an enormous user base, we cna be confident in the results.",
+    "crumbs": [
+      "cardx Overview"
+    ]
+  },
+  {
+    "objectID": "10-whats-next.html",
+    "href": "10-whats-next.html",
+    "title": "What’s Next?",
+    "section": "",
+    "text": "Priorities\n\nGet the {cards} R package in a place to make it’s first release. Focus on the GitHub issues tagged with v0.1.0 in the {cards} repo.\nAdd cardx::ard_*() functions to support the functionality currently available in {gtsummary}. Focus on the GitHub issues tagged with gtsummary in the {cardx} repo.\nFinalize the additional features we wish to include in {gtsummary}, and implement these features in the package.\nMigrate all existing {gtsummary} to the new structure, and make the {gtsummary} v2.0 release.\nAdd cardx::ard_*() functions to calculate the statistics needed in the TLG catalog.\nBuild templates using our workflow for each of the TLGs in our catalog.",
+    "crumbs": [
+      "What's Next?"
     ]
   }
 ]
