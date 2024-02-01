@@ -3,13 +3,6 @@ title: "{cardx} Overview"
 editor: source
 ---
 
-REVIEW THE PURPOSE OF cardx
-
-REVIEW AN EXAMPLE OF USING THE cards UTILITIES TO CREATE NEW ARDs
-
-SAY SOMETHING ABOUT VALUING the {broom} PACKAGE. NO NEED TO REPLICATE THE WORK ALREADY DONE AND BEING USED BY TENS OF THOUSANDS.
-USE broom, USE THEIR NAMING CONVENTIONS.
-
 The [{cards}](https://insightsengineering.github.io/cards/) package exports many utilities for working with ARD objects.
 Additionally, [{cards}](https://insightsengineering.github.io/cards/) exports utilities for creating new `ard_*()` functions.
 The [{cardx}](https://insightsengineering.github.io/cardx/) package takes advantage of this infrastructure, and exports many other functions for creating more complex ARD objects.
@@ -26,7 +19,9 @@ cards::ADSL |>
 The utilities allow us to return, not only the results of the t-test, but rows for each of the arguments.
 This allows us to both report the results, and also in a re-use case, know exactly how the results were calculated, e.g. assuming equal variances, the level of the confidence interval, etc.
 
-For our ARD work, we will take advantage of the {broom} package **and** we will use the naming conventions there.
+Essentially, every new `ard_*()` function we write, will be added to {cardx} rather than {cards}.
+
+For our ARD work, we will take advantage of the {broom} package **and we will use the naming conventions** from {broom}.
 The {broom} package get 500K+ installs every month.
-With an enormous user base, we cna be confident in the results.
+With an enormous user base, we can be confident in the results.
  
