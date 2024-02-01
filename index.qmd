@@ -58,14 +58,14 @@ assist in a multitude of analytical endeavors.
 
 Before we meet to review the details, please complete the following:
 
--   Review the full Analysis Results Standard, paying particular
+1.  Review the full Analysis Results Standard, paying particular
     attention to the section on Analysis Results Data.
     -   CDISC webinar on the model:
         <https://www.cdisc.org/events/webinar/analysis-results-standard-public-review>
--   Review the {gtsummary} package.
+1.  Review the {gtsummary} package.
     -   Cornell Seminar:
         <https://www.youtube.com/watch?v=tANo9E1SYJE&t=5s>
--   Using the {cards} package, create a single ARD object that contains
+1.  Using the {cards} package, create a single ARD object that contains
     all the statistics needed to construct the table below (including
     the statistics in the header).
     -   Use the `cards::ADSL` data set.
@@ -74,4 +74,4 @@ Before we meet to review the details, please complete the following:
     -   Use `cards::bind_ard()` to combine the results into a single ARD
         object.
 
-![](images/simple-demographics-table.png){width="85%"}
+    ![](images/simple-demographics-table.png){width="85%"}
