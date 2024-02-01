@@ -7,35 +7,71 @@ editor:
     wrap: 72
 ---
 
-
 # Overview
 
-The CDISC Analysis Results Data (ARD) Model is an emerging standard for encoding statistical analysis outcomes in a machine-readable format. Its primary objective is to streamline the processes of automation, ensuring reproducibility, promoting reusability, and enhancing traceability.
+The CDISC Analysis Results Data (ARD) Model is an emerging standard for
+encoding statistical analysis outcomes in a machine-readable format. Its
+primary objective is to streamline the processes of automation, ensuring
+reproducibility, promoting reusability, and enhancing traceability.
 
-The {cards} R package offers a range of functions for ARD generation, from basic univariate summaries like means and tabulations to complex multivariable summaries encompassing regression models and statistical tests.
+The {cards} R package offers a range of functions for ARD generation,
+from basic univariate summaries like means and tabulations to complex
+multivariable summaries encompassing regression models and statistical
+tests.
 
-The package includes functionalities to represent results in various formats, including JSON and YAML. Thanks to its flexible structures, the {cards} package can be harnessed in diverse applications, such as generating tables for regulatory submissions and conducting quality control checks on existing tables. Furthermore, the {cards} ARD object can be accessed through a REST API, allowing writers to dynamically incorporate table results into reports.
+The package includes functionalities to represent results in various
+formats, including JSON and YAML. Thanks to its flexible structures, the
+{cards} package can be harnessed in diverse applications, such as
+generating tables for regulatory submissions and conducting quality
+control checks on existing tables. Furthermore, the {cards} ARD object
+can be accessed through a REST API, allowing writers to dynamically
+incorporate table results into reports.
 
-The {cardx} package (extra cards) is a companion to {cards}, exporting more complex functions to generate ARD objects.
-While {cards} package has minimal dependencies, the {cardx} package will include additional suggested package dependencies.
+The {cardx} package (extra cards) is a companion to {cards}, exporting
+more complex functions to generate ARD objects. While {cards} package
+has minimal dependencies, the {cardx} package will include additional
+suggested package dependencies.
 
-While {cards} calculates statistics and stores them in a structured object, it cannot present those results; this, however, is where the {gtsummary} package shines. The {gtsummary} package offers a modular framework to construct summary tables. It is the most widely used package for summary tables in the healthcare/pharmaceutical space, and won the American Statistical Association's 2021 award for Innovation in Statistical Programming and Analytics. The {gtsummary} package is currently being refactored to utilize {cards} as its backend, which will allow users to both extract an ARD object from a {gtsummary} table and use an ARD object to construct a {gtsummary} table. The {cards} and {gtsummary} packages stand as robust and versatile tools, poised to assist in a multitude of analytical endeavors.
+While {cards} calculates statistics and stores them in a structured
+object, it cannot present those results; this, however, is where the
+{gtsummary} package shines. The {gtsummary} package offers a modular
+framework to construct summary tables. It is the most widely used
+package for summary tables in the healthcare/pharmaceutical space, and
+won the American Statistical Association's 2021 award for Innovation in
+Statistical Programming and Analytics. The {gtsummary} package is
+currently being refactored to utilize {cards} as its backend, which will
+allow users to both extract an ARD object from a {gtsummary} table and
+use an ARD object to construct a {gtsummary} table. The {cards} and
+{gtsummary} packages stand as robust and versatile tools, poised to
+assist in a multitude of analytical endeavors.
 
-[`r fontawesome::fa("github")` {cards}](https://github.com/insightsengineering/cards)
+[`r fontawesome::fa("github")`
+{cards}](https://github.com/insightsengineering/cards)
 
-[`r fontawesome::fa("github")` {cardx}](https://github.com/insightsengineering/cardx)
+[`r fontawesome::fa("github")`
+{cardx}](https://github.com/insightsengineering/cardx)
 
-[`r fontawesome::fa("github")` {gtsummary}](https://github.com/ddsjoberg/gtsummary)
+[`r fontawesome::fa("github")`
+{gtsummary}](https://github.com/ddsjoberg/gtsummary)
 
 # Pre-work
 
 Before we meet to review the details, please complete the following:
 
-- Review the full Analysis Results Standard, paying particular attention to the section on Analysis Results Data.
-  - CDISC webinar on the model: [https://www.cdisc.org/events/webinar/analysis-results-standard-public-review](https://www.cdisc.org/events/webinar/analysis-results-standard-public-review)
-  
-- Review the {gtsummary} package.
-  - Cornell Seminar: [https://www.youtube.com/watch?v=tANo9E1SYJE&t=5s](https://www.youtube.com/watch?v=tANo9E1SYJE&t=5s)
+-   Review the full Analysis Results Standard, paying particular
+    attention to the section on Analysis Results Data.
+    -   CDISC webinar on the model:
+        <https://www.cdisc.org/events/webinar/analysis-results-standard-public-review>
+-   Review the {gtsummary} package.
+    -   Cornell Seminar:
+        <https://www.youtube.com/watch?v=tANo9E1SYJE&t=5s>
+-   Using the {cards} package, create a single ARD object that contains
+    all the statistics needed to construct the table below (including
+    the statistics in the header).
+    -   Use the `cards::ADSL` data set.
+    -   Use `cards::ard_continuous()` and `cards::ard_cateogrical()` to
+        calculate the statistics.
+    -   Use `cards::bind_ard()` to combine the results into a single ARD
+        object.
 
-
-
+![](images/simple-demographics-table.png){width="85%"}
