@@ -245,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="anchored" data-anchor-id="ard-to-table">ARD to Table</h4>
 <p>The graphic below illustrates quite generally the approach we’ll take converting an ARD object created with {cards} to a {gtsummary} table.</p>
 <ul>
-<li><p><code>brdge_*()</code>: Bridge functions take the ARD table and create the {gtsummary} table. Primarily, this involves creating the underlying <code>.$table_body</code> data frame that is printed as the table.</p></li>
+<li><p><code>brdg_*()</code>: Bridge functions take the ARD data frame and create the {gtsummary} table. Primarily, this involves creating the underlying <code>.$table_body</code> data frame that is printed as the table.</p></li>
 <li><p><code>pier_*()</code>: Piers support bridges, and these functions do the same for the bridge functions. For example, a <code>tbl_summary()</code> table generally is comprised of continuous, categorical, and dichotomous summaries. Each of these types has an associated <code>pier_*()</code> function to tidy those results.</p></li>
 </ul>
 <p><img src="images/gtsummary-bridge.png" class="img-fluid"></p>
