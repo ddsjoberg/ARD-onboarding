@@ -7,6 +7,8 @@ Slides from [Hadley Wickham's Masterclass for R Package Development](https://git
 
 {{< pdf images/2-errors-snapshots.pdf width=100% height=800 >}}
 
+[R script for slides](https://raw.githubusercontent.com/ddsjoberg/ARD-onboarding/main/05-cli-conditions.R)
+
 ### Testing Error Messages
 
 There are various ways to check appropriate error messaging, and snapshot testing is my favorite.
