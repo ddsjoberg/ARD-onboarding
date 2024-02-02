@@ -19,9 +19,10 @@ The design of {gtsummary} comes from:
 
 Anyway, I've spent a significant amount of time thinking about statistical reporting!
 
-The {gtsummary} package has grown in scope immensely since the first internal version written for my team. It is now the most downloaded package for summary table in the entire R ecosystem with hundreds of thousands of users.
+The {gtsummary} package has grown in scope immensely since the first internal version written for my team.
+It is now the most downloaded package for summary tables in the entire R ecosystem with hundreds of thousands of users.
 
-Years ago, when we first got 200 downloads in one month, I wrote a chron job to report the monthly downloads relative to other packages. The {gtsummary} package is now the most widely used summary table package in the R ecosystem.
+Years ago, when we first got 200 downloads in one month, I wrote a chron job to report the monthly downloads relative to other packages.
 
 ![](images/gtsummary-monthly-downloads.png){width="65%"}
 
@@ -45,6 +46,9 @@ The graphic below illustrates quite generally the approach we'll take converting
 
 -   `brdg_*()`: Bridge functions take the ARD data frame and create the {gtsummary} table. Primarily, this involves creating the underlying `.$table_body` data frame that is printed as the table.
 
--   `pier_*()`: Piers support bridges, and these functions do the same for the bridge functions. For example, a `tbl_summary()` table generally is comprised of continuous, categorical, and dichotomous summaries. Each of these types has an associated `pier_*()` function to tidy those results.
+-   `pier_*()`: Piers support bridges, and these functions do the same by supporting bridge functions. For example, a `tbl_summary()` table generally is comprised of continuous, categorical, and dichotomous summaries. Each of these types has an associated `pier_*()` function to tidy those results, and these `pier_*()` functions are called by the `tbl_summary()` `brdg_*()` function.
+
+Both the bridge and pier functions can be generalized to support other reporting needs.
+For example, `brdg_summary()` constructs the `tbl_summary()` output from the ARDs, and this will require only a small amount of generalization to support `tbl_svysummary()` and more.
 
 ![](images/gtsummary-bridge.png)
