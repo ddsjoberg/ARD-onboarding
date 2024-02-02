@@ -223,8 +223,8 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/EU-reporting-guidelines.png" class="img-fluid" style="width:55.0%"></p></li>
 </ol>
 <p>Anyway, I’ve spent a significant amount of time thinking about statistical reporting!</p>
-<p>The {gtsummary} package has grown in scope immensely since the first internal version written for my team. It is now the most downloaded package for summary table in the entire R ecosystem with hundreds of thousands of users.</p>
-<p>Years ago, when we first got 200 downloads in one month, I wrote a chron job to report the monthly downloads relative to other packages. The {gtsummary} package is now the most widely used summary table package in the R ecosystem.</p>
+<p>The {gtsummary} package has grown in scope immensely since the first internal version written for my team. It is now the most downloaded package for summary tables in the entire R ecosystem with hundreds of thousands of users.</p>
+<p>Years ago, when we first got 200 downloads in one month, I wrote a chron job to report the monthly downloads relative to other packages.</p>
 <p><img src="images/gtsummary-monthly-downloads.png" class="img-fluid" style="width:65.0%"></p>
 <p>The implications of being a widely used package is that <strong>we must be extremely cautious and thoughtful</strong> about any breaking changes!</p>
 </section>
@@ -246,8 +246,9 @@ ul.task-list li input[type="checkbox"] {
 <p>The graphic below illustrates quite generally the approach we’ll take converting an ARD object created with {cards} to a {gtsummary} table.</p>
 <ul>
 <li><p><code>brdg_*()</code>: Bridge functions take the ARD data frame and create the {gtsummary} table. Primarily, this involves creating the underlying <code>.$table_body</code> data frame that is printed as the table.</p></li>
-<li><p><code>pier_*()</code>: Piers support bridges, and these functions do the same for the bridge functions. For example, a <code>tbl_summary()</code> table generally is comprised of continuous, categorical, and dichotomous summaries. Each of these types has an associated <code>pier_*()</code> function to tidy those results.</p></li>
+<li><p><code>pier_*()</code>: Piers support bridges, and these functions do the same by supporting bridge functions. For example, a <code>tbl_summary()</code> table generally is comprised of continuous, categorical, and dichotomous summaries. Each of these types has an associated <code>pier_*()</code> function to tidy those results, and these <code>pier_*()</code> functions are called by the <code>tbl_summary()</code> <code>brdg_*()</code> function.</p></li>
 </ul>
+<p>Both the bridge and pier functions can be generalized to support other reporting needs. For example, <code>brdg_summary()</code> constructs the <code>tbl_summary()</code> output from the ARDs, and this will require only a small amount of generalization to support <code>tbl_svysummary()</code> and more.</p>
 <p><img src="images/gtsummary-bridge.png" class="img-fluid"></p>
 
 
