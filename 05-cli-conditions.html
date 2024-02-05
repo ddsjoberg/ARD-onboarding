@@ -257,57 +257,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>While it can be different for various functions, but one chunk per function argument is often sufficient</p></li>
 <li><p>Be purposeful when creating snapshot tests. For example, if you’re testing an ARD object correctly captured the error messages, you don’t need to snapshot the entire ARD data frame.</p></li>
 <li><p>Do not snapshot printed tibbles or card objects. Each of these has a print method that truncates rows and columns, which will not be captured in a snapshot. Moreover, we don’t want small changes to a print method to break snapshot tests.</p></li>
+<li><p>Snapshot tests must be human readable. Note that I DO NOT consider a printed data frame with breaks across the column to be human readable. If needed, break a snapshot test into chunks, e.g.&nbsp;snapshot the first few columns, followed by a snapshot with the remaining columns.</p></li>
+<li><p>REVIEW THE SNAPS BEFORE COMMITTING. Not only are you going to inspect the results in the console while writing a snapshot test, you must also review the actual snapshot test. Pay particular attention to these notes from tidyselect, that for now, will only appear in a testing frame work (i.e.&nbsp;when unit tests are run in their own environment, not interactively).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  Warning<span class="sc">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  Use of .data <span class="cf">in</span> tidyselect expressions was deprecated <span class="cf">in</span> tidyselect <span class="dv">1</span>.<span class="dv">2</span>.<span class="fl">0.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  i Please use <span class="st">`</span><span class="at">"variable_level"</span><span class="st">`</span> instead of <span class="st">`</span><span class="at">.data$variable_level</span><span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can use the <code>options(lifecycle_verbosity = "error")</code> option to convert these testing-only messages to errors, which makes them much easier to track down.</p></li>
 <li><p>Should each snapshot test live in its own chunk? That will give a proper heading to each of the snapshots, so we know what is being tested by that snapshot.</p></li>
 </ul>
 </section>
 <section id="testing-error-messages" class="level3">
 <h3 class="anchored" data-anchor-id="testing-error-messages">Testing Error Messages</h3>
 <p>There are various ways to check appropriate error messaging, and snapshot testing is my favorite. This ensures the exact error you’re planning for is the one returned.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_snapshot</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">error =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>expr<span class="sc">&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect_snapshot</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">error =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>expr<span class="sc">&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="note-about-the-future" class="level3">
 <h3 class="anchored" data-anchor-id="note-about-the-future">Note about the future</h3>
 <p>We have a somewhat complex messaging situation. {cards} functions are going to be called from {cardx} and {gtsummary}: in these cases, we want the user to be messaged about the function they ran, even if the error is thrown from {cards}.</p>
 <p>In the near future, we’ll be implementing something like this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set this function at the top of a user-facing function</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>set_cli_abort_call <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">env =</span> rlang<span class="sc">::</span><span class="fu">caller_env</span>()) {</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">getOption</span>(<span class="st">"cli_abort_call"</span>) <span class="sc">|&gt;</span> <span class="fu">is.null</span>()) {</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">options</span>(<span class="at">cli_abort_call =</span> env)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    withr<span class="sc">::</span><span class="fu">defer</span>(<span class="at">expr =</span> <span class="fu">options</span>(<span class="at">cli_abort_call =</span> <span class="cn">NULL</span>), <span class="at">envir =</span> env)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">invisible</span>()</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># use this function in `cli_abort(call=get_cli_abort_call())`</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>get_cli_abort_call <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getOption</span>(<span class="st">"cli_abort_call"</span>, <span class="at">default =</span> <span class="fu">parent.frame</span>())</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># function called by user</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>user_facing_function <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_cli_abort_call</span>()</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">check_for_errors</span>()</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># an internal function OR exported function from another pkg that throws the error</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>check_for_errors <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  cli<span class="sc">::</span><span class="fu">cli_abort</span>(<span class="fu">c</span>(<span class="st">"!"</span> <span class="ot">=</span> <span class="st">"This is an error!"</span>, <span class="st">"i"</span> <span class="ot">=</span> <span class="st">"Be better"</span>), <span class="at">call =</span> <span class="fu">get_cli_abort_call</span>())</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># this exhibits the user experience</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">user_facing_function</span>()</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in `user_facing_function()`:</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! This is an error!</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Be better</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># check the default still work when no option is set</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="fu">check_for_errors</span>()</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in `check_for_errors()`:</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! This is an error!</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Be better</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set this function at the top of a user-facing function</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>set_cli_abort_call <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">env =</span> rlang<span class="sc">::</span><span class="fu">caller_env</span>()) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">getOption</span>(<span class="st">"cli_abort_call"</span>) <span class="sc">|&gt;</span> <span class="fu">is.null</span>()) {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">options</span>(<span class="at">cli_abort_call =</span> env)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    withr<span class="sc">::</span><span class="fu">defer</span>(<span class="at">expr =</span> <span class="fu">options</span>(<span class="at">cli_abort_call =</span> <span class="cn">NULL</span>), <span class="at">envir =</span> env)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">invisible</span>()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># use this function in `cli_abort(call=get_cli_abort_call())`</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>get_cli_abort_call <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getOption</span>(<span class="st">"cli_abort_call"</span>, <span class="at">default =</span> <span class="fu">parent.frame</span>())</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># function called by user</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>user_facing_function <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_cli_abort_call</span>()</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">check_for_errors</span>()</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># an internal function OR exported function from another pkg that throws the error</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>check_for_errors <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  cli<span class="sc">::</span><span class="fu">cli_abort</span>(<span class="fu">c</span>(<span class="st">"!"</span> <span class="ot">=</span> <span class="st">"This is an error!"</span>, <span class="st">"i"</span> <span class="ot">=</span> <span class="st">"Be better"</span>), <span class="at">call =</span> <span class="fu">get_cli_abort_call</span>())</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># this exhibits the user experience</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="fu">user_facing_function</span>()</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in `user_facing_function()`:</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! This is an error!</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Be better</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># check the default still work when no option is set</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="fu">check_for_errors</span>()</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in `check_for_errors()`:</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! This is an error!</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Be better</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
