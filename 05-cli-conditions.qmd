@@ -20,6 +20,18 @@ Slides from [Hadley Wickham's Masterclass for R Package Development](https://git
 
 - Do not snapshot printed tibbles or card objects. Each of these has a print method that truncates rows and columns, which will not be captured in a snapshot. Moreover, we don't want small changes to a print method to break snapshot tests.
 
+- Snapshot tests must be human readable. Note that I DO NOT consider a printed data frame with breaks across the column to be human readable. If needed, break a snapshot test into chunks, e.g. snapshot the first few columns, followed by a snapshot with the remaining columns.
+
+- REVIEW THE SNAPS BEFORE COMMITTING. Not only are you going to inspect the results in the console while writing a snapshot test, you must also review the actual snapshot test. Pay particular attention to these notes from tidyselect, that for now, will only appear in a testing frame work (i.e. when unit tests are run in their own environment, not interactively).
+
+    ```r
+      Warning:
+      Use of .data in tidyselect expressions was deprecated in tidyselect 1.2.0.
+      i Please use `"variable_level"` instead of `.data$variable_level`
+    ```
+    
+    You can use the `options(lifecycle_verbosity = "error")` option to convert these testing-only messages to errors, which makes them much easier to track down.
+
 - Should each snapshot test live in its own chunk? That will give a proper heading to each of the snapshots, so we know what is being tested by that snapshot.
 
 ### Testing Error Messages
