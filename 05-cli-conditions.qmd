@@ -9,6 +9,15 @@ Slides from [Hadley Wickham's Masterclass for R Package Development](https://git
 
 [R script for slides](https://raw.githubusercontent.com/ddsjoberg/ARD-onboarding/main/05-cli-conditions.R)
 
+
+### General Structue for Unit Testing
+
+- Use small unit testing chunks `test_that("<descriptive text>", {...})`
+
+- While it can be different for various functions, but one chunk per function argument is often sufficient
+
+- Should each snapshot test live in its own chunk? That will give a proper heading to each of the snapshots, so we know what is being tested by that snapshot.
+
 ### Testing Error Messages
 
 There are various ways to check appropriate error messaging, and snapshot testing is my favorite.
