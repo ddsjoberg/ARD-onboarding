@@ -219,7 +219,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#testing-error-messages" id="toc-testing-error-messages" class="nav-link active" data-scroll-target="#testing-error-messages">Testing Error Messages</a></li>
+  <li><a href="#general-structue-for-unit-testing" id="toc-general-structue-for-unit-testing" class="nav-link active" data-scroll-target="#general-structue-for-unit-testing">General Structue for Unit Testing</a></li>
+  <li><a href="#testing-error-messages" id="toc-testing-error-messages" class="nav-link" data-scroll-target="#testing-error-messages">Testing Error Messages</a></li>
   <li><a href="#note-about-the-future" id="toc-note-about-the-future" class="nav-link" data-scroll-target="#note-about-the-future">Note about the future</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/ddsjoberg/ARD-onboarding/edit/main/05-cli-conditions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ddsjoberg/ARD-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -249,6 +250,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Slides from <a href="https://github.com/posit-conf-2023/pkg-dev-masterclass">Hadley Wickham’s Masterclass for R Package Development</a></p>
 <p><object data="images/2-errors-snapshots.pdf" type="application/pdf" width="100%" height="800"><p>Unable to display PDF file. <a href="images/2-errors-snapshots.pdf">Download</a> instead.</p></object></p>
 <p><a href="https://raw.githubusercontent.com/ddsjoberg/ARD-onboarding/main/05-cli-conditions.R">R script for slides</a></p>
+<section id="general-structue-for-unit-testing" class="level3">
+<h3 class="anchored" data-anchor-id="general-structue-for-unit-testing">General Structue for Unit Testing</h3>
+<ul>
+<li><p>Use small unit testing chunks <code>test_that("&lt;descriptive text&gt;", {...})</code></p></li>
+<li><p>While it can be different for various functions, but one chunk per function argument is often sufficient</p></li>
+<li><p>Should each snapshot test live in its own chunk? That will give a proper heading to each of the snapshots, so we know what is being tested by that snapshot.</p></li>
+</ul>
+</section>
 <section id="testing-error-messages" class="level3">
 <h3 class="anchored" data-anchor-id="testing-error-messages">Testing Error Messages</h3>
 <p>There are various ways to check appropriate error messaging, and snapshot testing is my favorite. This ensures the exact error you’re planning for is the one returned.</p>
