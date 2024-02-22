@@ -255,6 +255,11 @@
       ],
       "Hash": "e0b3a53876554bd45879e596cdb10a52"
     },
+    "gtsummary": {
+      "Package": "gtsummary",
+      "Version": "1.7.2",
+      "Source": "Repository"
+    },
     "highr": {
       "Package": "highr",
       "Version": "0.10",
