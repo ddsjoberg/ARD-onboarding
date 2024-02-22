@@ -69,7 +69,7 @@ ard_with_error <-
   ard_continuous(
     ADSL, 
     variables = AGE, 
-    statistics = ~list(mean = mean_with_error)
+    statistic = ~list(mean = mean_with_error)
   )
 ard_with_error
 ```

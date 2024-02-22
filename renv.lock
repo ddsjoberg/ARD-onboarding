@@ -73,14 +73,14 @@
     },
     "cards": {
       "Package": "cards",
-      "Version": "0.0.0.9014",
+      "Version": "0.0.0.9053",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "insightsengineering",
       "RemoteRepo": "cards",
       "RemoteRef": "main",
-      "RemoteSha": "d8cfb652e7b6271830c55c3f62a9aecf59a0230a",
+      "RemoteSha": "b01244ade3a2805418dc1abac12c70fd00b7d0c0",
       "Requirements": [
         "R",
         "cli",
@@ -90,28 +90,29 @@
         "tidyr",
         "tidyselect"
       ],
-      "Hash": "f527eece793d9a191600e3bdbdcce837"
+      "Hash": "c8cbf41ad91d0eb8b015521c002279d4"
     },
     "cardx": {
       "Package": "cardx",
-      "Version": "0.0.0.9014",
+      "Version": "0.0.0.9042",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "insightsengineering",
       "RemoteRepo": "cardx",
       "RemoteRef": "main",
-      "RemoteSha": "badcf7302f5b16c590e928bdb3fdcac71fdd629b",
+      "RemoteSha": "c50ecfd6c6292bf90247787ab6c94bd66725e2b2",
       "Remotes": "insightsengineering/cards",
       "Requirements": [
         "R",
         "cards",
         "cli",
         "dplyr",
+        "glue",
         "rlang",
         "tidyr"
       ],
-      "Hash": "30f82db8b1ab7ee7a4315ea494f06cf4"
+      "Hash": "fe2c8a036907db25dbe4390c6a3fd97f"
     },
     "cli": {
       "Package": "cli",
