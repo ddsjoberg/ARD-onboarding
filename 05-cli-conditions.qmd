@@ -10,7 +10,7 @@ Slides from [Hadley Wickham's Masterclass for R Package Development](https://git
 [R script for slides](https://raw.githubusercontent.com/ddsjoberg/ARD-onboarding/main/05-cli-conditions.R)
 
 
-### General Structue for Unit Testing
+### General Structure for Unit Testing
 
 - Use small unit testing chunks `test_that("<descriptive text>", {...})`
 
