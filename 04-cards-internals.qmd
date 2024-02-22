@@ -3,8 +3,8 @@ title: "{cards} Internals"
 editor: source
 ---
 
-- Utilities for creating ARDs, everything listed under [https://insightsengineering.github.io/cards/reference/index.html#construct-ards](https://insightsengineering.github.io/cards/reference/index.html#construct-ards)
+- Utilities for creating ARDs, everything listed under [https://insightsengineering.github.io/cards/main/reference/index.html#construct-ards](https://insightsengineering.github.io/cards/main/reference/index.html#construct-ards)
   - The basic `cards::ard_*()` can also be used to construct bespoke ARDs of different flavors
     
-- Utilities for working with ARDs, everything listed under [https://insightsengineering.github.io/cards/reference/index.html#wrangle-ard](https://insightsengineering.github.io/cards/reference/index.html#wrangle-ard)
+- Utilities for working with ARDs, everything listed under [https://insightsengineering.github.io/cards/main/reference/index.html#wrangle-ard](https://insightsengineering.github.io/cards/main/reference/index.html#wrangle-ard)
 
