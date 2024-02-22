@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -128,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./images/v1-gtsummary-cards-cardx-HexSticker.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
@@ -263,17 +263,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{cards} data frame: 48 x 10</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   group1 group1_level variable stat_name stat_label statistic
-1     ARM      Placebo      AGE         N          N        86
-2     ARM      Placebo      AGE      mean       Mean    75.209
-3     ARM      Placebo      AGE        sd         SD      8.59
-4     ARM      Placebo      AGE    median     Median        76
-5     ARM      Placebo      AGE       p25  25th Per…        69
-6     ARM      Placebo      AGE       p75  75th Per…        82
-7     ARM      Placebo      AGE       min        Min        52
-8     ARM      Placebo      AGE       max        Max        89
-9     ARM      Placebo    BMIBL         N          N        86
-10    ARM      Placebo    BMIBL      mean       Mean    23.636</code></pre>
+<pre><code>   group1 group1_level variable stat_name stat_label   stat
+1     ARM      Placebo      AGE         N          N     86
+2     ARM      Placebo      AGE      mean       Mean 75.209
+3     ARM      Placebo      AGE        sd         SD   8.59
+4     ARM      Placebo      AGE    median     Median     76
+5     ARM      Placebo      AGE       p25  25th Per…     69
+6     ARM      Placebo      AGE       p75  75th Per…     82
+7     ARM      Placebo      AGE       min        Min     52
+8     ARM      Placebo      AGE       max        Max     89
+9     ARM      Placebo    BMIBL         N          N     86
+10    ARM      Placebo    BMIBL      mean       Mean 23.636</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ 38 more rows</code></pre>
@@ -282,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ 4 more variables: context, statistic_fmt_fn, warning, error</code></pre>
+<pre><code>ℹ 4 more variables: context, fmt_fn, warning, error</code></pre>
 </div>
 </div>
 <p>A few items to note from this result:</p>
@@ -299,17 +299,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{cards} data frame: 27 x 11</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   group1 group1_level variable variable_level stat_name stat_label statistic
-1     ARM      Placebo   AGEGR1            &lt;65         n          n        14
-2     ARM      Placebo   AGEGR1            &lt;65         N          N        86
-3     ARM      Placebo   AGEGR1            &lt;65         p          %     0.163
-4     ARM    Xanomeli…   AGEGR1            &lt;65         n          n        11
-5     ARM    Xanomeli…   AGEGR1            &lt;65         N          N        84
-6     ARM    Xanomeli…   AGEGR1            &lt;65         p          %     0.131
-7     ARM    Xanomeli…   AGEGR1            &lt;65         n          n         8
-8     ARM    Xanomeli…   AGEGR1            &lt;65         N          N        84
-9     ARM    Xanomeli…   AGEGR1            &lt;65         p          %     0.095
-10    ARM      Placebo   AGEGR1            &gt;80         n          n        30</code></pre>
+<pre><code>   group1 group1_level variable variable_level stat_name stat_label  stat
+1     ARM      Placebo   AGEGR1            &lt;65         n          n    14
+2     ARM      Placebo   AGEGR1            &lt;65         N          N    86
+3     ARM      Placebo   AGEGR1            &lt;65         p          % 0.163
+4     ARM    Xanomeli…   AGEGR1            &lt;65         n          n    11
+5     ARM    Xanomeli…   AGEGR1            &lt;65         N          N    84
+6     ARM    Xanomeli…   AGEGR1            &lt;65         p          % 0.131
+7     ARM    Xanomeli…   AGEGR1            &lt;65         n          n     8
+8     ARM    Xanomeli…   AGEGR1            &lt;65         N          N    84
+9     ARM    Xanomeli…   AGEGR1            &lt;65         p          % 0.095
+10    ARM      Placebo   AGEGR1            &gt;80         n          n    30</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ 17 more rows</code></pre>
@@ -318,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ 4 more variables: context, statistic_fmt_fn, warning, error</code></pre>
+<pre><code>ℹ 4 more variables: context, fmt_fn, warning, error</code></pre>
 </div>
 </div>
 <p>As a result of the common structure between this result and the continuous variable summary above, these two data frames can be combined with <code>bind_ard()</code>. The <code>bind_ard()</code> function is similar to <code>dplyr::bind_rows()</code>, and includes a few structural checks found in our ARD data frames, e.g.&nbsp;if we combine two ARDs with duplicate statistics, the function will notify us that the ARD no longer contains unique statistics.</p>
@@ -346,18 +346,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ard_continuous</span>(</span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    ADSL, </span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">variables =</span> AGE, </span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistics =</span> <span class="sc">~</span><span class="fu">list</span>(<span class="at">mean =</span> mean_with_error)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="sc">~</span><span class="fu">list</span>(<span class="at">mean =</span> mean_with_error)</span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>ard_with_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>{cards} data frame: 1 x 8</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  variable   context stat_name stat_label statistic     error
-1      AGE continuo…      mean       Mean      NULL There wa…</code></pre>
+<pre><code>  variable   context stat_name stat_label stat     error
+1      AGE continuo…      mean       Mean      There wa…</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ 2 more variables: statistic_fmt_fn, warning</code></pre>
+<pre><code>ℹ 2 more variables: fmt_fn, warning</code></pre>
 </div>
 </div>
 <p>The <a href="https://insightsengineering.github.io/cards/">{cards}</a> package exports many utilities for working with ARDs. The example below is a utility to print any errors or warnings that may have occurred while calculating the statistics.</p>
@@ -773,7 +773,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-ard-overview.html" class="pagination-link  aria-label=" ard="" overview"="">
+      <a href="./02-ard-overview.html" class="pagination-link" aria-label="ARD Overview">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">ARD Overview</span>
       </a>          
   </div>

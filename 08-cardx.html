@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -128,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./images/v1-gtsummary-cards-cardx-HexSticker.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
@@ -250,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{cards} data frame: 14 x 9</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   group1 variable context   stat_name stat_label statistic
+<pre><code>   group1 variable context   stat_name stat_label      stat
 1     ARM      AGE   ttest    estimate  Mean Dif…     0.828
 2     ARM      AGE   ttest   estimate1  Group 1 …    75.209
 3     ARM      AGE   ttest   estimate2  Group 2 …    74.381
@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 14    ARM      AGE   ttest  conf.level  CI Confi…      0.95</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ 3 more variables: statistic_fmt_fn, warning, error</code></pre>
+<pre><code>ℹ 3 more variables: fmt_fn, warning, error</code></pre>
 </div>
 </div>
 <p>The utilities allow us to return, not only the results of the t-test, but rows for each of the arguments. This allows us to both report the results, and also in a re-use case, know exactly how the results were calculated, e.g.&nbsp;assuming equal variances, the level of the confidence interval, etc.</p>
@@ -666,7 +666,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-standalone-scripts.html" class="pagination-link  aria-label=" standalone="" scripts"="">
+      <a href="./07-standalone-scripts.html" class="pagination-link" aria-label="Standalone Scripts">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Standalone Scripts</span>
       </a>          
   </div>
