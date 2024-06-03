@@ -85,6 +85,11 @@
       "Version": "1.0.6",
       "Source": "Repository"
     },
+    "broom.helpers": {
+      "Package": "broom.helpers",
+      "Version": "1.15.0",
+      "Source": "Repository"
+    },
     "bslib": {
       "Package": "bslib",
       "Version": "0.7.0",
