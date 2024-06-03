@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analysis Results Datasets Onboarding - {cardx} Overview</title>
+<title>Analysis Results Datasets Onboarding - Unit Testing {gtsummary} Tables</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,8 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./09-gtsummary.html" rel="next">
-<link href="./07-standalone-scripts.html" rel="prev">
+<link href="./99-whats-next.html" rel="next">
+<link href="./11-gtsummary-ARD.html" rel="prev">
 <link href="./images/v1-gtsummary-cards-cardx-HexSticker.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-cardx.html">cardx Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12-gtsummary-unit-testing.html">Unit Testing gtsummary tables</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -193,7 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-cardx.html" class="sidebar-item-text sidebar-link active">
+  <a href="./08-cardx.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">cardx Overview</span></a>
   </div>
 </li>
@@ -217,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-gtsummary-unit-testing.html" class="sidebar-item-text sidebar-link">
+  <a href="./12-gtsummary-unit-testing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Unit Testing gtsummary tables</span></a>
   </div>
 </li>
@@ -240,7 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">{cardx} Overview</h1>
+<h1 class="title">Unit Testing {gtsummary} Tables</h1>
 </div>
 
 
@@ -257,40 +257,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The <a href="https://insightsengineering.github.io/cards/">{cards}</a> package exports many utilities for working with ARD objects. Additionally, <a href="https://insightsengineering.github.io/cards/">{cards}</a> exports utilities for creating new <code>ard_*()</code> functions. The <a href="https://insightsengineering.github.io/cardx/">{cardx}</a> package takes advantage of this infrastructure, and exports many other functions for creating more complex ARD objects.</p>
-<p>Utilizing these utilities from <a href="https://insightsengineering.github.io/cards/">{cards}</a>, we can easily create a function to prepare the results from a t-test.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cards<span class="sc">::</span>ADSL <span class="sc">|&gt;</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># keep two treatment arms for the t-test calculation</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(ARM <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Placebo"</span>, <span class="st">"Xanomeline High Dose"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  cardx<span class="sc">::</span><span class="fu">ard_stats_t_test</span>(<span class="at">by =</span> ARM, <span class="at">variables =</span> AGE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>{cards} data frame: 14 x 9</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   group1 variable   context   stat_name stat_label      stat
-1     ARM      AGE stats_t_…    estimate  Mean Dif…     0.828
-2     ARM      AGE stats_t_…   estimate1  Group 1 …    75.209
-3     ARM      AGE stats_t_…   estimate2  Group 2 …    74.381
-4     ARM      AGE stats_t_…   statistic  t Statis…     0.655
-5     ARM      AGE stats_t_…     p.value    p-value     0.513
-6     ARM      AGE stats_t_…   parameter  Degrees …   167.362
-7     ARM      AGE stats_t_…    conf.low  CI Lower…    -1.668
-8     ARM      AGE stats_t_…   conf.high  CI Upper…     3.324
-9     ARM      AGE stats_t_…      method     method Welch Tw…
-10    ARM      AGE stats_t_… alternative  alternat… two.sided
-11    ARM      AGE stats_t_…          mu    H0 Mean         0
-12    ARM      AGE stats_t_…      paired  Paired t…     FALSE
-13    ARM      AGE stats_t_…   var.equal  Equal Va…     FALSE
-14    ARM      AGE stats_t_…  conf.level  CI Confi…      0.95</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>ℹ 3 more variables: fmt_fn, warning, error</code></pre>
-</div>
-</div>
-<p>The utilities allow us to return, not only the results of the t-test, but rows for each of the arguments. This allows us to both report the results, and also in a re-use case, know exactly how the results were calculated, e.g.&nbsp;assuming equal variances, the level of the confidence interval, etc.</p>
-<p>Essentially, every new <code>ard_*()</code> function we write, will be added to {cardx} rather than {cards}.</p>
-<p>For our ARD work, we will take advantage of the {broom} package <strong>and we will use the naming conventions</strong> from {broom}. The {broom} package get 500K+ installs every month. With an enormous user base, we can be confident in the results.</p>
+<p>A couple of guidelines while writing unit tests for gtsummary functions.</p>
+<ol type="1">
+<li><p>Create a test chunk for each argument.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"tbl_regression(show_single_row)"</span>, {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># trt variable displays on single row</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lm</span>(age <span class="sc">~</span> trt <span class="sc">+</span> marker, trial) <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tbl_regression</span>(<span class="at">show_single_row =</span> trt) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">getElement</span>(<span class="st">"table_body"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(variable <span class="sc">==</span> <span class="st">"trt"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">nrow</span>(),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>L</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"tbl_regression(conf.level)"</span>, {</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_silent</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    tbl <span class="ot">&lt;-</span> <span class="fu">lm</span>(age <span class="sc">~</span> trt <span class="sc">+</span> marker, trial) <span class="sc">|&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tbl_regression</span>(<span class="at">conf.level =</span> <span class="fl">0.80</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    tbl<span class="sc">$</span>table_styling<span class="sc">$</span>header <span class="sc">|&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(column <span class="sc">%in%</span> <span class="st">"conf.low"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">pull</span>(label),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"**80% CI**"</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>For chunks that messaging or error messaging, create a separate test chunk.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"tbl_uvregression(method.args) messaging"</span>, {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># error with an incorrect argument passed</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_snapshot</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">error =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tbl_uvregression</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      trial,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> response,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">method =</span> glm,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">not_an_arg =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">include =</span> trt</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Generally, <code>expect_equal()</code> is preferred over snapshot testing. But snapshots are great for messaging checks.</p></li>
+<li><p><code>expect_silent()</code> is a useful tool when creating an object to perform further testing on. Use it when you expect no notes or warnings.</p></li>
+<li><p>When using snapshot tests, include one, or perhaps two, tests per test chunk.</p></li>
+<li><p>Our goal is that no matter what a user passes in the arguments (or combination of arguments), they receive a coherent and helpful error message. Keep this in mind while writing unit tests. If inputs result in poor messaging, rather than testing the poor messaging, we should update the function.</p></li>
+</ol>
 
 
 
@@ -706,13 +719,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-standalone-scripts.html" class="pagination-link" aria-label="Standalone Scripts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Standalone Scripts</span>
+      <a href="./11-gtsummary-ARD.html" class="pagination-link" aria-label="Build gtsummary with ARDs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Build gtsummary with ARDs</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09-gtsummary.html" class="pagination-link" aria-label="gtsummary Overview">
-        <span class="nav-page-text">gtsummary Overview</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./99-whats-next.html" class="pagination-link" aria-label="What's Next?">
+        <span class="nav-page-text">What’s Next?</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -724,7 +737,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/ddsjoberg/ARD-onboarding/edit/main/08-cardx.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ddsjoberg/ARD-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/ddsjoberg/ARD-onboarding/edit/main/12-gtsummary-unit-testing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ddsjoberg/ARD-onboarding/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
