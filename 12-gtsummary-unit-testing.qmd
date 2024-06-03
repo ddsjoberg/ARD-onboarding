@@ -1,0 +1,61 @@
+---
+title: "Unit Testing {gtsummary} Tables"
+---
+
+A couple of guidelines while writing unit tests for gtsummary functions.
+
+1. Create a test chunk for each argument.
+
+    ```r
+    test_that("tbl_regression(show_single_row)", {
+      # trt variable displays on single row
+      expect_equal(
+        lm(age ~ trt + marker, trial) |>
+          tbl_regression(show_single_row = trt) |>
+          getElement("table_body") |>
+          dplyr::filter(variable == "trt") |>
+          nrow(),
+        1L
+      )
+    })
+    
+    test_that("tbl_regression(conf.level)", {
+      expect_silent(
+        tbl <- lm(age ~ trt + marker, trial) |>
+          tbl_regression(conf.level = 0.80)
+      )
+    
+      expect_equal(
+        tbl$table_styling$header |>
+          dplyr::filter(column %in% "conf.low") |>
+          dplyr::pull(label),
+        "**80% CI**"
+      )
+    })
+    ```
+
+1. For chunks that messaging or error messaging, create a separate test chunk.
+
+    ```r
+    test_that("tbl_uvregression(method.args) messaging", {
+      # error with an incorrect argument passed
+      expect_snapshot(
+        error = TRUE,
+        tbl_uvregression(
+          trial,
+          y = response,
+          method = glm,
+          method.args = list(not_an_arg = FALSE),
+          include = trt
+        )
+      )
+    })
+    ```
+  
+1. Generally, `expect_equal()` is preferred over snapshot testing. But snapshots are great for messaging checks.
+
+1. `expect_silent()` is a useful tool when creating an object to perform further testing on. Use it when you expect no notes or warnings.
+
+1. When using snapshot tests, include one, or perhaps two, tests per test chunk.
+
+1. Our goal is that no matter what a user passes in the arguments (or combination of arguments), they receive a coherent and helpful error message. Keep this in mind while writing unit tests. If inputs result in poor messaging, rather than testing the poor messaging, we should update the function.

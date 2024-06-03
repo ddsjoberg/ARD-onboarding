@@ -48,7 +48,13 @@ website:
        text: cardx Overview
      - href: 09-gtsummary.qmd
        text: gtsummary Overview
-     - href: 10-whats-next.qmd
+     - href: 10-gtsummary-objects.qmd
+       text: Inside gtsummary
+     - href: 11-gtsummary-ARD.qmd
+       text: Build gtsummary with ARDs
+     - href: 12-gtsummary-unit-testing.qmd
+       text: Unit Testing gtsummary tables
+     - href: 99-whats-next.qmd
        text: What's Next?
      - href: license.qmd
 

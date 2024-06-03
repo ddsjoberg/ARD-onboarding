@@ -13,7 +13,7 @@ Utilizing these utilities from [{cards}](https://insightsengineering.github.io/c
 cards::ADSL |> 
   # keep two treatment arms for the t-test calculation
   dplyr::filter(ARM %in% c("Placebo", "Xanomeline High Dose")) |> 
-  cardx::ard_ttest(by = ARM, variable = AGE)
+  cardx::ard_stats_t_test(by = ARM, variables = AGE)
 ```
 
 The utilities allow us to return, not only the results of the t-test, but rows for each of the arguments.
