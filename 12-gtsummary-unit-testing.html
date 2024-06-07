@@ -273,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"**80% CI**"</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>For chunks that return messaging or error messaging, create a separate test chunk.</p>
+<li><p>For chunks that return messaging or error messaging, create a separate test chunk. Capture error messaging with snapshot tests, so we can assess whether the error’s header appropriately lists the calling function.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"tbl_uvregression(method.args) messaging"</span>, {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># error with an incorrect argument passed</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_snapshot</span>(</span>
@@ -287,11 +287,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Generally, <code>expect_equal()</code> is preferred over snapshot testing. But snapshots are great for messaging checks.</p></li>
-<li><p><code>expect_silent()</code> is a useful tool when creating an object to perform further testing on. Use it when you expect no notes or warnings.</p></li>
+<li><p>Generally, <code>expect_equal()</code> is preferred over snapshot testing. But snapshots are great for error messaging checks.</p></li>
 <li><p>When using snapshot tests, include one, or perhaps two, tests per test chunk.</p></li>
+<li><p><code>expect_silent()</code> is a useful tool when creating an object to perform further testing on. Use it when you expect no notes or warnings.</p></li>
 <li><p>Our goal is that no matter what a user passes in the arguments (or combination of arguments), they receive a coherent and helpful error message. Keep this in mind while writing unit tests. If inputs result in poor messaging, rather than testing the poor messaging, we should update the function.</p></li>
-<li><p>For arguments that accept functions, check the tidyverse shortcut notation work as well as typical functions, e.g.&nbsp;<code>pvalue_fun = ~style_pvalue(.x)</code></p></li>
+<li><p>For arguments that accept functions, check the tidyverse shortcut notation works as well as typical functions, e.g.&nbsp;<code>pvalue_fun = ~style_pvalue(.x)</code></p></li>
 </ol>
 
 
