@@ -22,7 +22,7 @@ A couple of guidelines while writing unit tests for gtsummary functions.
     })
     ```
 
-1. For chunks that return messaging or error messaging, create a separate test chunk.
+1. For chunks that return messaging or error messaging, create a separate test chunk. Capture error messaging with snapshot tests, so we can assess whether the error's header appropriately lists the calling function.
 
     ```r
     test_that("tbl_uvregression(method.args) messaging", {
@@ -40,12 +40,12 @@ A couple of guidelines while writing unit tests for gtsummary functions.
     })
     ```
   
-1. Generally, `expect_equal()` is preferred over snapshot testing. But snapshots are great for messaging checks.
-
-1. `expect_silent()` is a useful tool when creating an object to perform further testing on. Use it when you expect no notes or warnings.
+1. Generally, `expect_equal()` is preferred over snapshot testing. But snapshots are great for error messaging checks.
 
 1. When using snapshot tests, include one, or perhaps two, tests per test chunk.
 
+1. `expect_silent()` is a useful tool when creating an object to perform further testing on. Use it when you expect no notes or warnings.
+
 1. Our goal is that no matter what a user passes in the arguments (or combination of arguments), they receive a coherent and helpful error message. Keep this in mind while writing unit tests. If inputs result in poor messaging, rather than testing the poor messaging, we should update the function.
 
-1. For arguments that accept functions, check the tidyverse shortcut notation work as well as typical functions, e.g. `pvalue_fun = ~style_pvalue(.x)`
+1. For arguments that accept functions, check the tidyverse shortcut notation works as well as typical functions, e.g. `pvalue_fun = ~style_pvalue(.x)`
