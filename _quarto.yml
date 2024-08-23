@@ -30,8 +30,8 @@ website:
     contents:
      - href: index.qmd
        text: Home
-     - href: 01-plan.qmd
-       text: Plan Overview
+     # - href: 01-plan.qmd
+     #   text: Plan Overview
      - href: 02-ard-overview.qmd
        text: ARD Overview
      - href: 03-cards-examples.qmd

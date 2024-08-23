@@ -84,7 +84,7 @@ print_ard_conditions(ard_with_error)
 ## List-Formula Syntax
 
 Many functions in {cards}, {cardx}, and {gtsummary} have arguments that accept a list-formula syntax, e.g. `ard_continuous(statistics)`.
-The syntax is explained in detail here: https://insightsengineering.github.io/cards/reference/syntax.html
+The syntax is explained in detail here: [https://insightsengineering.github.io/cards/reference/syntax.html](https://insightsengineering.github.io/cards/reference/syntax.html)
 
 Briefly, these arguments accept a few different structures that are processed into a named list using `cards::process_formula_selectors()`. 
 The two most common are:

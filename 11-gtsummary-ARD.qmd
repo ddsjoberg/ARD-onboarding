@@ -33,62 +33,16 @@ ard_for_table <-
     ard_continuous(variables = c(marker, age)),
     ard_categorical(variables = grade),
     .missing = TRUE,                     # we use missing information in gtsummary
-    .attributes = TRUE                   # we also use attirbutes like column labels
+    .attributes = TRUE,                  # we also use attirbutes like column labels
+    .total_n = TRUE                      # add total N to the ARD
   )
 
 # then convert it to a table with `card_summary()`
 ard_for_table |> 
-  card_summary(
+  tbl_ard_summary(
+    by = trt,
     type = age ~ "continuous2",
-    statistic = all_continuous2() ~ c("{mean} ({sd})", "{median} ({p25}, {p75})"),
-    missing = "no"
+    statistic = all_continuous2() ~ c("{mean} ({sd})", "{median} ({p25}, {p75})")
   )
 ```
 
-### Building Tables
-
-The `brdg_*()` and `pier_*()` functions help us build gtsummary tables.
-
-For the table above, we have one 
-
-```{r}
-brdg_tbl <- ard_for_table |> 
-  brdg_summary(
-    by = "trt", 
-    variables = c("marker", "age", "grade"),
-    type = list(marker = "continuous", age = "continuous2", grade = "categorical"),
-    statistic = 
-      list(
-        marker = "{median} ({p25}, {p75})",
-        age = c("{mean} ({sd})", "{median} ({p25}, {p75})"), 
-        grade = "{n} / {N}"
-      )
-  )
-names(brdg_tbl)
-brdg_tbl
-```
-
-The pier functions are used by the bridge function.
-
-For example `gtsummary::pier_summary_continuous()` built this portion of the `.$table_body`.
-
-```{r}
-brdg_tbl$table_body |> 
-  dplyr::filter(variable == "marker")
-```
-
-`gtsummary::pier_summary_continuous2()` built this portion of the `.$table_body`.
-
-```{r}
-brdg_tbl$table_body |> 
-  dplyr::filter(variable == "age")
-```
-
-and `gtsummary::pier_summary_categorical()` built this section.
-
-```{r}
-brdg_tbl$table_body |> 
-  dplyr::filter(variable == "grade")
-```
-
-These three structures provide the basis for most table structures.

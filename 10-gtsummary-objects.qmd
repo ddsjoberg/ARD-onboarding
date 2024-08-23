@@ -13,7 +13,7 @@ The in-progress version of the package lives in the `v2.0` branch.
 Let's begin by creating two common gtsummary tables: a simple summary and a regression model summary.
 
 ```{r setup, message=FALSE}
-# pak::pak("ddsjoberg/gtsummary@v2.0")
+# pak::pak("ddsjoberg/gtsummary")
 library(gtsummary)
 
 tbl_summary_ex <-

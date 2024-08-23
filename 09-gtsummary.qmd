@@ -28,15 +28,17 @@ Years ago, when we first got 200 downloads in one month, I wrote a chron job to 
 
 The implications of being a widely used package is that **we must be extremely cautious and thoughtful** about any breaking changes!
 
-### Future
+### Future/On-going Work
 
-The [{cards}](https://insightsengineering.github.io/cards/) package does not present results and this is where the [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) package shines. The [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) package offers a modular framework to construct summary tables. The [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) package is the most widely used package for summary tables in the R ecosystem, and won the American Statistical Association's 2021 award for Innovation in Statistical Programming and Analytics and it's currently being refactored with a [{cards}](https://insightsengineering.github.io/cards/) backend.
+The [{cards}](https://insightsengineering.github.io/cards/) package does not present results and this is where the [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) package shines. The [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) package offers a modular framework to construct summary tables. The [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) package is the most widely used package for summary tables in the R ecosystem, and won the American Statistical Association's 2021 award for Innovation in Statistical Programming and Analytics, won the 2024 Posit Table Contest's pharma track, and has over 1 million downloads.
 
-After the update, ARDs will play two important roles in a [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/).
+The package has been refactored with a [{cards}](https://insightsengineering.github.io/cards/) backend.
 
-1.  An ARD will be a byproduct of every [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) tables created.
+ARDs will play two important roles in a [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/)-created table.
 
-2.  The package will also support an ARD-first approach, ingesting the ARD and returning a [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) table.
+1.  An ARD are a byproduct of every [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) tables created.
+
+2.  The package also supports an ARD-first approach, ingesting the ARD and returning a [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) table.
 
 ![](images/ard-gtsummary-workflow.png){fig-align="left"}
 
