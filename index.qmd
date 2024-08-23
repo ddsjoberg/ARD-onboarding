@@ -64,7 +64,7 @@ Before we meet to review the details, please complete the following:
     all the statistics needed to construct the table below (including
     the statistics in the header).
     -   Use the `cards::ADSL` data set.
-    -   Use `cards::ard_continuous()` and `cards::ard_cateogrical()` to
+    -   Use the `cards::ard_continuous()`, `cards::ard_cateogrical()`, and `cards::ard_dichotomous()` functions to
         calculate the statistics.
     -   Use `cards::bind_ard()` to combine the results into a single ARD
         object.
