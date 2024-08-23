@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analysis Results Datasets Onboarding - {gtsummary} objects</title>
+<title>{gtsummary} objects – Analysis Results Datasets Onboarding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -112,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10-gtsummary-objects.html">Inside gtsummary</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -147,12 +147,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01-plan.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plan Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -271,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The in-progress version of the package lives in the <code>v2.0</code> branch.</p>
 <p>Let’s begin by creating two common gtsummary tables: a simple summary and a regression model summary.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pak::pak("ddsjoberg/gtsummary@v2.0")</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pak::pak("ddsjoberg/gtsummary")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tbl_summary_ex <span class="ot">&lt;-</span></span>
@@ -319,23 +313,23 @@ The list contains the following data frames <code>header</code>, <code>footnote<
 <p>The <code>header</code> table has the following columns and is one row per column found in <code>.$table_body</code>. The table contains styling information that applies to entire column or the columns headers.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="mjwkqjfntw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mjwkqjfntw table {
+<div id="mxlvedyspu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mxlvedyspu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mjwkqjfntw thead, #mjwkqjfntw tbody, #mjwkqjfntw tfoot, #mjwkqjfntw tr, #mjwkqjfntw td, #mjwkqjfntw th {
+#mxlvedyspu thead, #mxlvedyspu tbody, #mxlvedyspu tfoot, #mxlvedyspu tr, #mxlvedyspu td, #mxlvedyspu th {
   border-style: none;
 }
 
-#mjwkqjfntw p {
+#mxlvedyspu p {
   margin: 0;
   padding: 0;
 }
 
-#mjwkqjfntw .gt_table {
+#mxlvedyspu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -361,12 +355,12 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-left-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_caption {
+#mxlvedyspu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mjwkqjfntw .gt_title {
+#mxlvedyspu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -378,7 +372,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-width: 0;
 }
 
-#mjwkqjfntw .gt_subtitle {
+#mxlvedyspu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -390,7 +384,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-width: 0;
 }
 
-#mjwkqjfntw .gt_heading {
+#mxlvedyspu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -402,13 +396,13 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_bottom_border {
+#mxlvedyspu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_col_headings {
+#mxlvedyspu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -423,7 +417,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_col_heading {
+#mxlvedyspu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -443,7 +437,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#mjwkqjfntw .gt_column_spanner_outer {
+#mxlvedyspu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -455,15 +449,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 4px;
 }
 
-#mjwkqjfntw .gt_column_spanner_outer:first-child {
+#mxlvedyspu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mjwkqjfntw .gt_column_spanner_outer:last-child {
+#mxlvedyspu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mjwkqjfntw .gt_column_spanner {
+#mxlvedyspu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -475,11 +469,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   width: 100%;
 }
 
-#mjwkqjfntw .gt_spanner_row {
+#mxlvedyspu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mjwkqjfntw .gt_group_heading {
+#mxlvedyspu .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -505,7 +499,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   text-align: left;
 }
 
-#mjwkqjfntw .gt_empty_group_heading {
+#mxlvedyspu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -520,15 +514,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: middle;
 }
 
-#mjwkqjfntw .gt_from_md > :first-child {
+#mxlvedyspu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mjwkqjfntw .gt_from_md > :last-child {
+#mxlvedyspu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mjwkqjfntw .gt_row {
+#mxlvedyspu .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -547,7 +541,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#mjwkqjfntw .gt_stub {
+#mxlvedyspu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -560,7 +554,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#mjwkqjfntw .gt_stub_row_group {
+#mxlvedyspu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -574,15 +568,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: top;
 }
 
-#mjwkqjfntw .gt_row_group_first td {
+#mxlvedyspu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mjwkqjfntw .gt_row_group_first th {
+#mxlvedyspu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mjwkqjfntw .gt_summary_row {
+#mxlvedyspu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -592,16 +586,16 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#mjwkqjfntw .gt_first_summary_row {
+#mxlvedyspu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_first_summary_row.thick {
+#mxlvedyspu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mjwkqjfntw .gt_last_summary_row {
+#mxlvedyspu .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -611,7 +605,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_grand_summary_row {
+#mxlvedyspu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -621,7 +615,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#mjwkqjfntw .gt_first_grand_summary_row {
+#mxlvedyspu .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -631,7 +625,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_last_grand_summary_row_top {
+#mxlvedyspu .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -641,11 +635,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_striped {
+#mxlvedyspu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mjwkqjfntw .gt_table_body {
+#mxlvedyspu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -654,7 +648,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_footnotes {
+#mxlvedyspu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -668,7 +662,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_footnote {
+#mxlvedyspu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -677,7 +671,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#mjwkqjfntw .gt_sourcenotes {
+#mxlvedyspu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -691,7 +685,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#mjwkqjfntw .gt_sourcenote {
+#mxlvedyspu .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -699,64 +693,73 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#mjwkqjfntw .gt_left {
+#mxlvedyspu .gt_left {
   text-align: left;
 }
 
-#mjwkqjfntw .gt_center {
+#mxlvedyspu .gt_center {
   text-align: center;
 }
 
-#mjwkqjfntw .gt_right {
+#mxlvedyspu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mjwkqjfntw .gt_font_normal {
+#mxlvedyspu .gt_font_normal {
   font-weight: normal;
 }
 
-#mjwkqjfntw .gt_font_bold {
+#mxlvedyspu .gt_font_bold {
   font-weight: bold;
 }
 
-#mjwkqjfntw .gt_font_italic {
+#mxlvedyspu .gt_font_italic {
   font-style: italic;
 }
 
-#mjwkqjfntw .gt_super {
+#mxlvedyspu .gt_super {
   font-size: 65%;
 }
 
-#mjwkqjfntw .gt_footnote_marks {
+#mxlvedyspu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mjwkqjfntw .gt_asterisk {
+#mxlvedyspu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mjwkqjfntw .gt_indent_1 {
+#mxlvedyspu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mjwkqjfntw .gt_indent_2 {
+#mxlvedyspu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mjwkqjfntw .gt_indent_3 {
+#mxlvedyspu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mjwkqjfntw .gt_indent_4 {
+#mxlvedyspu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mjwkqjfntw .gt_indent_5 {
+#mxlvedyspu .gt_indent_5 {
   text-indent: 25px;
+}
+
+#mxlvedyspu .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mxlvedyspu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
@@ -815,23 +818,23 @@ The list contains the following data frames <code>header</code>, <code>footnote<
 <p>Each {gtsummary} table may contain a single footnote per header and cell within the table. Footnotes and footnote abbreviations are handled separately. Updates/changes to footnote are appended to the bottom of the tibble. A footnote of <code>NA_character_</code> deletes an existing footnote.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="kxqqirgudp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kxqqirgudp table {
+<div id="mmqfkrwgjl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mmqfkrwgjl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kxqqirgudp thead, #kxqqirgudp tbody, #kxqqirgudp tfoot, #kxqqirgudp tr, #kxqqirgudp td, #kxqqirgudp th {
+#mmqfkrwgjl thead, #mmqfkrwgjl tbody, #mmqfkrwgjl tfoot, #mmqfkrwgjl tr, #mmqfkrwgjl td, #mmqfkrwgjl th {
   border-style: none;
 }
 
-#kxqqirgudp p {
+#mmqfkrwgjl p {
   margin: 0;
   padding: 0;
 }
 
-#kxqqirgudp .gt_table {
+#mmqfkrwgjl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -857,12 +860,12 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-left-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_caption {
+#mmqfkrwgjl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kxqqirgudp .gt_title {
+#mmqfkrwgjl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -874,7 +877,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-width: 0;
 }
 
-#kxqqirgudp .gt_subtitle {
+#mmqfkrwgjl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -886,7 +889,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-width: 0;
 }
 
-#kxqqirgudp .gt_heading {
+#mmqfkrwgjl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -898,13 +901,13 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_bottom_border {
+#mmqfkrwgjl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_col_headings {
+#mmqfkrwgjl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -919,7 +922,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_col_heading {
+#mmqfkrwgjl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -939,7 +942,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#kxqqirgudp .gt_column_spanner_outer {
+#mmqfkrwgjl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -951,15 +954,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 4px;
 }
 
-#kxqqirgudp .gt_column_spanner_outer:first-child {
+#mmqfkrwgjl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kxqqirgudp .gt_column_spanner_outer:last-child {
+#mmqfkrwgjl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kxqqirgudp .gt_column_spanner {
+#mmqfkrwgjl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -971,11 +974,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   width: 100%;
 }
 
-#kxqqirgudp .gt_spanner_row {
+#mmqfkrwgjl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kxqqirgudp .gt_group_heading {
+#mmqfkrwgjl .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1001,7 +1004,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   text-align: left;
 }
 
-#kxqqirgudp .gt_empty_group_heading {
+#mmqfkrwgjl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1016,15 +1019,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: middle;
 }
 
-#kxqqirgudp .gt_from_md > :first-child {
+#mmqfkrwgjl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kxqqirgudp .gt_from_md > :last-child {
+#mmqfkrwgjl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kxqqirgudp .gt_row {
+#mmqfkrwgjl .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1043,7 +1046,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#kxqqirgudp .gt_stub {
+#mmqfkrwgjl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1056,7 +1059,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#kxqqirgudp .gt_stub_row_group {
+#mmqfkrwgjl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1070,15 +1073,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: top;
 }
 
-#kxqqirgudp .gt_row_group_first td {
+#mmqfkrwgjl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kxqqirgudp .gt_row_group_first th {
+#mmqfkrwgjl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kxqqirgudp .gt_summary_row {
+#mmqfkrwgjl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1088,16 +1091,16 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#kxqqirgudp .gt_first_summary_row {
+#mmqfkrwgjl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_first_summary_row.thick {
+#mmqfkrwgjl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kxqqirgudp .gt_last_summary_row {
+#mmqfkrwgjl .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1107,7 +1110,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_grand_summary_row {
+#mmqfkrwgjl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1117,7 +1120,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#kxqqirgudp .gt_first_grand_summary_row {
+#mmqfkrwgjl .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1127,7 +1130,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_last_grand_summary_row_top {
+#mmqfkrwgjl .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1137,11 +1140,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_striped {
+#mmqfkrwgjl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kxqqirgudp .gt_table_body {
+#mmqfkrwgjl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1150,7 +1153,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_footnotes {
+#mmqfkrwgjl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1164,7 +1167,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_footnote {
+#mmqfkrwgjl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -1173,7 +1176,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#kxqqirgudp .gt_sourcenotes {
+#mmqfkrwgjl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1187,7 +1190,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#kxqqirgudp .gt_sourcenote {
+#mmqfkrwgjl .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -1195,64 +1198,73 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#kxqqirgudp .gt_left {
+#mmqfkrwgjl .gt_left {
   text-align: left;
 }
 
-#kxqqirgudp .gt_center {
+#mmqfkrwgjl .gt_center {
   text-align: center;
 }
 
-#kxqqirgudp .gt_right {
+#mmqfkrwgjl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kxqqirgudp .gt_font_normal {
+#mmqfkrwgjl .gt_font_normal {
   font-weight: normal;
 }
 
-#kxqqirgudp .gt_font_bold {
+#mmqfkrwgjl .gt_font_bold {
   font-weight: bold;
 }
 
-#kxqqirgudp .gt_font_italic {
+#mmqfkrwgjl .gt_font_italic {
   font-style: italic;
 }
 
-#kxqqirgudp .gt_super {
+#mmqfkrwgjl .gt_super {
   font-size: 65%;
 }
 
-#kxqqirgudp .gt_footnote_marks {
+#mmqfkrwgjl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kxqqirgudp .gt_asterisk {
+#mmqfkrwgjl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kxqqirgudp .gt_indent_1 {
+#mmqfkrwgjl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kxqqirgudp .gt_indent_2 {
+#mmqfkrwgjl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kxqqirgudp .gt_indent_3 {
+#mmqfkrwgjl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kxqqirgudp .gt_indent_4 {
+#mmqfkrwgjl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kxqqirgudp .gt_indent_5 {
+#mmqfkrwgjl .gt_indent_5 {
   text-indent: 25px;
+}
+
+#mmqfkrwgjl .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mmqfkrwgjl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
@@ -1290,23 +1302,23 @@ The list contains the following data frames <code>header</code>, <code>footnote<
 <p>Numeric columns/rows are styled with the functions stored in <code>fmt_fun</code>. Updates/changes to styling functions are appended to the bottom of the tibble.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="evfpzlpmyl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#evfpzlpmyl table {
+<div id="gutuuvdiwj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gutuuvdiwj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#evfpzlpmyl thead, #evfpzlpmyl tbody, #evfpzlpmyl tfoot, #evfpzlpmyl tr, #evfpzlpmyl td, #evfpzlpmyl th {
+#gutuuvdiwj thead, #gutuuvdiwj tbody, #gutuuvdiwj tfoot, #gutuuvdiwj tr, #gutuuvdiwj td, #gutuuvdiwj th {
   border-style: none;
 }
 
-#evfpzlpmyl p {
+#gutuuvdiwj p {
   margin: 0;
   padding: 0;
 }
 
-#evfpzlpmyl .gt_table {
+#gutuuvdiwj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1332,12 +1344,12 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-left-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_caption {
+#gutuuvdiwj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#evfpzlpmyl .gt_title {
+#gutuuvdiwj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1349,7 +1361,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-width: 0;
 }
 
-#evfpzlpmyl .gt_subtitle {
+#gutuuvdiwj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1361,7 +1373,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-width: 0;
 }
 
-#evfpzlpmyl .gt_heading {
+#gutuuvdiwj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1373,13 +1385,13 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_bottom_border {
+#gutuuvdiwj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_col_headings {
+#gutuuvdiwj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1394,7 +1406,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_col_heading {
+#gutuuvdiwj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1414,7 +1426,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#evfpzlpmyl .gt_column_spanner_outer {
+#gutuuvdiwj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1426,15 +1438,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 4px;
 }
 
-#evfpzlpmyl .gt_column_spanner_outer:first-child {
+#gutuuvdiwj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#evfpzlpmyl .gt_column_spanner_outer:last-child {
+#gutuuvdiwj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#evfpzlpmyl .gt_column_spanner {
+#gutuuvdiwj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1446,11 +1458,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   width: 100%;
 }
 
-#evfpzlpmyl .gt_spanner_row {
+#gutuuvdiwj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#evfpzlpmyl .gt_group_heading {
+#gutuuvdiwj .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1476,7 +1488,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   text-align: left;
 }
 
-#evfpzlpmyl .gt_empty_group_heading {
+#gutuuvdiwj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1491,15 +1503,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: middle;
 }
 
-#evfpzlpmyl .gt_from_md > :first-child {
+#gutuuvdiwj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#evfpzlpmyl .gt_from_md > :last-child {
+#gutuuvdiwj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#evfpzlpmyl .gt_row {
+#gutuuvdiwj .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1518,7 +1530,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#evfpzlpmyl .gt_stub {
+#gutuuvdiwj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1531,7 +1543,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#evfpzlpmyl .gt_stub_row_group {
+#gutuuvdiwj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1545,15 +1557,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: top;
 }
 
-#evfpzlpmyl .gt_row_group_first td {
+#gutuuvdiwj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#evfpzlpmyl .gt_row_group_first th {
+#gutuuvdiwj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#evfpzlpmyl .gt_summary_row {
+#gutuuvdiwj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1563,16 +1575,16 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#evfpzlpmyl .gt_first_summary_row {
+#gutuuvdiwj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_first_summary_row.thick {
+#gutuuvdiwj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#evfpzlpmyl .gt_last_summary_row {
+#gutuuvdiwj .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1582,7 +1594,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_grand_summary_row {
+#gutuuvdiwj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1592,7 +1604,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#evfpzlpmyl .gt_first_grand_summary_row {
+#gutuuvdiwj .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1602,7 +1614,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_last_grand_summary_row_top {
+#gutuuvdiwj .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1612,11 +1624,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_striped {
+#gutuuvdiwj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#evfpzlpmyl .gt_table_body {
+#gutuuvdiwj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1625,7 +1637,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_footnotes {
+#gutuuvdiwj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1639,7 +1651,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_footnote {
+#gutuuvdiwj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -1648,7 +1660,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#evfpzlpmyl .gt_sourcenotes {
+#gutuuvdiwj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1662,7 +1674,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#evfpzlpmyl .gt_sourcenote {
+#gutuuvdiwj .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -1670,64 +1682,73 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#evfpzlpmyl .gt_left {
+#gutuuvdiwj .gt_left {
   text-align: left;
 }
 
-#evfpzlpmyl .gt_center {
+#gutuuvdiwj .gt_center {
   text-align: center;
 }
 
-#evfpzlpmyl .gt_right {
+#gutuuvdiwj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#evfpzlpmyl .gt_font_normal {
+#gutuuvdiwj .gt_font_normal {
   font-weight: normal;
 }
 
-#evfpzlpmyl .gt_font_bold {
+#gutuuvdiwj .gt_font_bold {
   font-weight: bold;
 }
 
-#evfpzlpmyl .gt_font_italic {
+#gutuuvdiwj .gt_font_italic {
   font-style: italic;
 }
 
-#evfpzlpmyl .gt_super {
+#gutuuvdiwj .gt_super {
   font-size: 65%;
 }
 
-#evfpzlpmyl .gt_footnote_marks {
+#gutuuvdiwj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#evfpzlpmyl .gt_asterisk {
+#gutuuvdiwj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#evfpzlpmyl .gt_indent_1 {
+#gutuuvdiwj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#evfpzlpmyl .gt_indent_2 {
+#gutuuvdiwj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#evfpzlpmyl .gt_indent_3 {
+#gutuuvdiwj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#evfpzlpmyl .gt_indent_4 {
+#gutuuvdiwj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#evfpzlpmyl .gt_indent_5 {
+#gutuuvdiwj .gt_indent_5 {
   text-indent: 25px;
+}
+
+#gutuuvdiwj .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#gutuuvdiwj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
@@ -1765,23 +1786,23 @@ The list contains the following data frames <code>header</code>, <code>footnote<
 <p>Instructions on which columns and rows to indent. Updates/changes to styling functions are appended to the bottom of the tibble.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="lwyzpzynov" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lwyzpzynov table {
+<div id="fkrxynaqib" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fkrxynaqib table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lwyzpzynov thead, #lwyzpzynov tbody, #lwyzpzynov tfoot, #lwyzpzynov tr, #lwyzpzynov td, #lwyzpzynov th {
+#fkrxynaqib thead, #fkrxynaqib tbody, #fkrxynaqib tfoot, #fkrxynaqib tr, #fkrxynaqib td, #fkrxynaqib th {
   border-style: none;
 }
 
-#lwyzpzynov p {
+#fkrxynaqib p {
   margin: 0;
   padding: 0;
 }
 
-#lwyzpzynov .gt_table {
+#fkrxynaqib .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1807,12 +1828,12 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-left-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_caption {
+#fkrxynaqib .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lwyzpzynov .gt_title {
+#fkrxynaqib .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1824,7 +1845,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-width: 0;
 }
 
-#lwyzpzynov .gt_subtitle {
+#fkrxynaqib .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1836,7 +1857,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-width: 0;
 }
 
-#lwyzpzynov .gt_heading {
+#fkrxynaqib .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1848,13 +1869,13 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_bottom_border {
+#fkrxynaqib .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_col_headings {
+#fkrxynaqib .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1869,7 +1890,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_col_heading {
+#fkrxynaqib .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1889,7 +1910,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#lwyzpzynov .gt_column_spanner_outer {
+#fkrxynaqib .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1901,15 +1922,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 4px;
 }
 
-#lwyzpzynov .gt_column_spanner_outer:first-child {
+#fkrxynaqib .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lwyzpzynov .gt_column_spanner_outer:last-child {
+#fkrxynaqib .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lwyzpzynov .gt_column_spanner {
+#fkrxynaqib .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1921,11 +1942,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   width: 100%;
 }
 
-#lwyzpzynov .gt_spanner_row {
+#fkrxynaqib .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lwyzpzynov .gt_group_heading {
+#fkrxynaqib .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1951,7 +1972,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   text-align: left;
 }
 
-#lwyzpzynov .gt_empty_group_heading {
+#fkrxynaqib .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1966,15 +1987,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: middle;
 }
 
-#lwyzpzynov .gt_from_md > :first-child {
+#fkrxynaqib .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lwyzpzynov .gt_from_md > :last-child {
+#fkrxynaqib .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lwyzpzynov .gt_row {
+#fkrxynaqib .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -1993,7 +2014,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#lwyzpzynov .gt_stub {
+#fkrxynaqib .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2006,7 +2027,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#lwyzpzynov .gt_stub_row_group {
+#fkrxynaqib .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2020,15 +2041,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: top;
 }
 
-#lwyzpzynov .gt_row_group_first td {
+#fkrxynaqib .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lwyzpzynov .gt_row_group_first th {
+#fkrxynaqib .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lwyzpzynov .gt_summary_row {
+#fkrxynaqib .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2038,16 +2059,16 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#lwyzpzynov .gt_first_summary_row {
+#fkrxynaqib .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_first_summary_row.thick {
+#fkrxynaqib .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lwyzpzynov .gt_last_summary_row {
+#fkrxynaqib .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2057,7 +2078,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_grand_summary_row {
+#fkrxynaqib .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2067,7 +2088,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#lwyzpzynov .gt_first_grand_summary_row {
+#fkrxynaqib .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2077,7 +2098,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_last_grand_summary_row_top {
+#fkrxynaqib .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2087,11 +2108,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_striped {
+#fkrxynaqib .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lwyzpzynov .gt_table_body {
+#fkrxynaqib .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2100,7 +2121,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_footnotes {
+#fkrxynaqib .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2114,7 +2135,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_footnote {
+#fkrxynaqib .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -2123,7 +2144,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#lwyzpzynov .gt_sourcenotes {
+#fkrxynaqib .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2137,7 +2158,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#lwyzpzynov .gt_sourcenote {
+#fkrxynaqib .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -2145,64 +2166,73 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#lwyzpzynov .gt_left {
+#fkrxynaqib .gt_left {
   text-align: left;
 }
 
-#lwyzpzynov .gt_center {
+#fkrxynaqib .gt_center {
   text-align: center;
 }
 
-#lwyzpzynov .gt_right {
+#fkrxynaqib .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lwyzpzynov .gt_font_normal {
+#fkrxynaqib .gt_font_normal {
   font-weight: normal;
 }
 
-#lwyzpzynov .gt_font_bold {
+#fkrxynaqib .gt_font_bold {
   font-weight: bold;
 }
 
-#lwyzpzynov .gt_font_italic {
+#fkrxynaqib .gt_font_italic {
   font-style: italic;
 }
 
-#lwyzpzynov .gt_super {
+#fkrxynaqib .gt_super {
   font-size: 65%;
 }
 
-#lwyzpzynov .gt_footnote_marks {
+#fkrxynaqib .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lwyzpzynov .gt_asterisk {
+#fkrxynaqib .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lwyzpzynov .gt_indent_1 {
+#fkrxynaqib .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lwyzpzynov .gt_indent_2 {
+#fkrxynaqib .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lwyzpzynov .gt_indent_3 {
+#fkrxynaqib .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lwyzpzynov .gt_indent_4 {
+#fkrxynaqib .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lwyzpzynov .gt_indent_5 {
+#fkrxynaqib .gt_indent_5 {
   text-indent: 25px;
+}
+
+#fkrxynaqib .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#fkrxynaqib div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
@@ -2240,23 +2270,23 @@ The list contains the following data frames <code>header</code>, <code>footnote<
 <p>Columns/rows are styled with bold, italic, or indenting stored in <code>text_format</code>. Updates/changes to styling functions are appended to the bottom of the tibble.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="deuzyvqsyp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#deuzyvqsyp table {
+<div id="nvlkjwbjsr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nvlkjwbjsr table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#deuzyvqsyp thead, #deuzyvqsyp tbody, #deuzyvqsyp tfoot, #deuzyvqsyp tr, #deuzyvqsyp td, #deuzyvqsyp th {
+#nvlkjwbjsr thead, #nvlkjwbjsr tbody, #nvlkjwbjsr tfoot, #nvlkjwbjsr tr, #nvlkjwbjsr td, #nvlkjwbjsr th {
   border-style: none;
 }
 
-#deuzyvqsyp p {
+#nvlkjwbjsr p {
   margin: 0;
   padding: 0;
 }
 
-#deuzyvqsyp .gt_table {
+#nvlkjwbjsr .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2282,12 +2312,12 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-left-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_caption {
+#nvlkjwbjsr .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#deuzyvqsyp .gt_title {
+#nvlkjwbjsr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2299,7 +2329,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-width: 0;
 }
 
-#deuzyvqsyp .gt_subtitle {
+#nvlkjwbjsr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2311,7 +2341,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-width: 0;
 }
 
-#deuzyvqsyp .gt_heading {
+#nvlkjwbjsr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2323,13 +2353,13 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_bottom_border {
+#nvlkjwbjsr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_col_headings {
+#nvlkjwbjsr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2344,7 +2374,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_col_heading {
+#nvlkjwbjsr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2364,7 +2394,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#deuzyvqsyp .gt_column_spanner_outer {
+#nvlkjwbjsr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2376,15 +2406,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 4px;
 }
 
-#deuzyvqsyp .gt_column_spanner_outer:first-child {
+#nvlkjwbjsr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#deuzyvqsyp .gt_column_spanner_outer:last-child {
+#nvlkjwbjsr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#deuzyvqsyp .gt_column_spanner {
+#nvlkjwbjsr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2396,11 +2426,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   width: 100%;
 }
 
-#deuzyvqsyp .gt_spanner_row {
+#nvlkjwbjsr .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#deuzyvqsyp .gt_group_heading {
+#nvlkjwbjsr .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2426,7 +2456,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   text-align: left;
 }
 
-#deuzyvqsyp .gt_empty_group_heading {
+#nvlkjwbjsr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2441,15 +2471,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: middle;
 }
 
-#deuzyvqsyp .gt_from_md > :first-child {
+#nvlkjwbjsr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#deuzyvqsyp .gt_from_md > :last-child {
+#nvlkjwbjsr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#deuzyvqsyp .gt_row {
+#nvlkjwbjsr .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2468,7 +2498,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#deuzyvqsyp .gt_stub {
+#nvlkjwbjsr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2481,7 +2511,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#deuzyvqsyp .gt_stub_row_group {
+#nvlkjwbjsr .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2495,15 +2525,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: top;
 }
 
-#deuzyvqsyp .gt_row_group_first td {
+#nvlkjwbjsr .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#deuzyvqsyp .gt_row_group_first th {
+#nvlkjwbjsr .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#deuzyvqsyp .gt_summary_row {
+#nvlkjwbjsr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2513,16 +2543,16 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#deuzyvqsyp .gt_first_summary_row {
+#nvlkjwbjsr .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_first_summary_row.thick {
+#nvlkjwbjsr .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#deuzyvqsyp .gt_last_summary_row {
+#nvlkjwbjsr .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2532,7 +2562,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_grand_summary_row {
+#nvlkjwbjsr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2542,7 +2572,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#deuzyvqsyp .gt_first_grand_summary_row {
+#nvlkjwbjsr .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2552,7 +2582,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_last_grand_summary_row_top {
+#nvlkjwbjsr .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2562,11 +2592,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_striped {
+#nvlkjwbjsr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#deuzyvqsyp .gt_table_body {
+#nvlkjwbjsr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2575,7 +2605,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_footnotes {
+#nvlkjwbjsr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2589,7 +2619,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_footnote {
+#nvlkjwbjsr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -2598,7 +2628,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#deuzyvqsyp .gt_sourcenotes {
+#nvlkjwbjsr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2612,7 +2642,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#deuzyvqsyp .gt_sourcenote {
+#nvlkjwbjsr .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -2620,64 +2650,73 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#deuzyvqsyp .gt_left {
+#nvlkjwbjsr .gt_left {
   text-align: left;
 }
 
-#deuzyvqsyp .gt_center {
+#nvlkjwbjsr .gt_center {
   text-align: center;
 }
 
-#deuzyvqsyp .gt_right {
+#nvlkjwbjsr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#deuzyvqsyp .gt_font_normal {
+#nvlkjwbjsr .gt_font_normal {
   font-weight: normal;
 }
 
-#deuzyvqsyp .gt_font_bold {
+#nvlkjwbjsr .gt_font_bold {
   font-weight: bold;
 }
 
-#deuzyvqsyp .gt_font_italic {
+#nvlkjwbjsr .gt_font_italic {
   font-style: italic;
 }
 
-#deuzyvqsyp .gt_super {
+#nvlkjwbjsr .gt_super {
   font-size: 65%;
 }
 
-#deuzyvqsyp .gt_footnote_marks {
+#nvlkjwbjsr .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#deuzyvqsyp .gt_asterisk {
+#nvlkjwbjsr .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#deuzyvqsyp .gt_indent_1 {
+#nvlkjwbjsr .gt_indent_1 {
   text-indent: 5px;
 }
 
-#deuzyvqsyp .gt_indent_2 {
+#nvlkjwbjsr .gt_indent_2 {
   text-indent: 10px;
 }
 
-#deuzyvqsyp .gt_indent_3 {
+#nvlkjwbjsr .gt_indent_3 {
   text-indent: 15px;
 }
 
-#deuzyvqsyp .gt_indent_4 {
+#nvlkjwbjsr .gt_indent_4 {
   text-indent: 20px;
 }
 
-#deuzyvqsyp .gt_indent_5 {
+#nvlkjwbjsr .gt_indent_5 {
   text-indent: 25px;
+}
+
+#nvlkjwbjsr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#nvlkjwbjsr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
@@ -2719,23 +2758,23 @@ The list contains the following data frames <code>header</code>, <code>footnote<
 <p>By default, all <code>NA</code> values are shown blanks. Missing values in columns/rows are replaced with the <code>symbol</code>. For example, reference rows in <code>tbl_regression()</code> are shown with an em-dash. Updates/changes to styling functions are appended to the bottom of the tibble.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="guthdalbki" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#guthdalbki table {
+<div id="ziybyvszvg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ziybyvszvg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#guthdalbki thead, #guthdalbki tbody, #guthdalbki tfoot, #guthdalbki tr, #guthdalbki td, #guthdalbki th {
+#ziybyvszvg thead, #ziybyvszvg tbody, #ziybyvszvg tfoot, #ziybyvszvg tr, #ziybyvszvg td, #ziybyvszvg th {
   border-style: none;
 }
 
-#guthdalbki p {
+#ziybyvszvg p {
   margin: 0;
   padding: 0;
 }
 
-#guthdalbki .gt_table {
+#ziybyvszvg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2761,12 +2800,12 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-left-color: #D3D3D3;
 }
 
-#guthdalbki .gt_caption {
+#ziybyvszvg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#guthdalbki .gt_title {
+#ziybyvszvg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2778,7 +2817,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-width: 0;
 }
 
-#guthdalbki .gt_subtitle {
+#ziybyvszvg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2790,7 +2829,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-width: 0;
 }
 
-#guthdalbki .gt_heading {
+#ziybyvszvg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2802,13 +2841,13 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#guthdalbki .gt_bottom_border {
+#ziybyvszvg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#guthdalbki .gt_col_headings {
+#ziybyvszvg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2823,7 +2862,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#guthdalbki .gt_col_heading {
+#ziybyvszvg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2843,7 +2882,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#guthdalbki .gt_column_spanner_outer {
+#ziybyvszvg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2855,15 +2894,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 4px;
 }
 
-#guthdalbki .gt_column_spanner_outer:first-child {
+#ziybyvszvg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#guthdalbki .gt_column_spanner_outer:last-child {
+#ziybyvszvg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#guthdalbki .gt_column_spanner {
+#ziybyvszvg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2875,11 +2914,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   width: 100%;
 }
 
-#guthdalbki .gt_spanner_row {
+#ziybyvszvg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#guthdalbki .gt_group_heading {
+#ziybyvszvg .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2905,7 +2944,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   text-align: left;
 }
 
-#guthdalbki .gt_empty_group_heading {
+#ziybyvszvg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2920,15 +2959,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: middle;
 }
 
-#guthdalbki .gt_from_md > :first-child {
+#ziybyvszvg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#guthdalbki .gt_from_md > :last-child {
+#ziybyvszvg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#guthdalbki .gt_row {
+#ziybyvszvg .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -2947,7 +2986,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#guthdalbki .gt_stub {
+#ziybyvszvg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2960,7 +2999,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#guthdalbki .gt_stub_row_group {
+#ziybyvszvg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2974,15 +3013,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: top;
 }
 
-#guthdalbki .gt_row_group_first td {
+#ziybyvszvg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#guthdalbki .gt_row_group_first th {
+#ziybyvszvg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#guthdalbki .gt_summary_row {
+#ziybyvszvg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2992,16 +3031,16 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#guthdalbki .gt_first_summary_row {
+#ziybyvszvg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#guthdalbki .gt_first_summary_row.thick {
+#ziybyvszvg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#guthdalbki .gt_last_summary_row {
+#ziybyvszvg .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3011,7 +3050,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#guthdalbki .gt_grand_summary_row {
+#ziybyvszvg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3021,7 +3060,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#guthdalbki .gt_first_grand_summary_row {
+#ziybyvszvg .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3031,7 +3070,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-color: #D3D3D3;
 }
 
-#guthdalbki .gt_last_grand_summary_row_top {
+#ziybyvszvg .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3041,11 +3080,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#guthdalbki .gt_striped {
+#ziybyvszvg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#guthdalbki .gt_table_body {
+#ziybyvszvg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3054,7 +3093,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#guthdalbki .gt_footnotes {
+#ziybyvszvg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3068,7 +3107,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#guthdalbki .gt_footnote {
+#ziybyvszvg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -3077,7 +3116,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#guthdalbki .gt_sourcenotes {
+#ziybyvszvg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3091,7 +3130,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#guthdalbki .gt_sourcenote {
+#ziybyvszvg .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -3099,64 +3138,73 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#guthdalbki .gt_left {
+#ziybyvszvg .gt_left {
   text-align: left;
 }
 
-#guthdalbki .gt_center {
+#ziybyvszvg .gt_center {
   text-align: center;
 }
 
-#guthdalbki .gt_right {
+#ziybyvszvg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#guthdalbki .gt_font_normal {
+#ziybyvszvg .gt_font_normal {
   font-weight: normal;
 }
 
-#guthdalbki .gt_font_bold {
+#ziybyvszvg .gt_font_bold {
   font-weight: bold;
 }
 
-#guthdalbki .gt_font_italic {
+#ziybyvszvg .gt_font_italic {
   font-style: italic;
 }
 
-#guthdalbki .gt_super {
+#ziybyvszvg .gt_super {
   font-size: 65%;
 }
 
-#guthdalbki .gt_footnote_marks {
+#ziybyvszvg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#guthdalbki .gt_asterisk {
+#ziybyvszvg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#guthdalbki .gt_indent_1 {
+#ziybyvszvg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#guthdalbki .gt_indent_2 {
+#ziybyvszvg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#guthdalbki .gt_indent_3 {
+#ziybyvszvg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#guthdalbki .gt_indent_4 {
+#ziybyvszvg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#guthdalbki .gt_indent_5 {
+#ziybyvszvg .gt_indent_5 {
   text-indent: 25px;
+}
+
+#ziybyvszvg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ziybyvszvg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
@@ -3194,23 +3242,23 @@ The list contains the following data frames <code>header</code>, <code>footnote<
 <p>This object is <em>experimental</em> and may change in the future. This tibble gives instructions for merging columns into a single column. The implementation in <code>as_gt()</code> will be updated after <code>gt::cols_label()</code> gains a <code>rows=</code> argument.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="afcgptrweq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#afcgptrweq table {
+<div id="hjhgxofkfh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hjhgxofkfh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#afcgptrweq thead, #afcgptrweq tbody, #afcgptrweq tfoot, #afcgptrweq tr, #afcgptrweq td, #afcgptrweq th {
+#hjhgxofkfh thead, #hjhgxofkfh tbody, #hjhgxofkfh tfoot, #hjhgxofkfh tr, #hjhgxofkfh td, #hjhgxofkfh th {
   border-style: none;
 }
 
-#afcgptrweq p {
+#hjhgxofkfh p {
   margin: 0;
   padding: 0;
 }
 
-#afcgptrweq .gt_table {
+#hjhgxofkfh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3236,12 +3284,12 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-left-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_caption {
+#hjhgxofkfh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#afcgptrweq .gt_title {
+#hjhgxofkfh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3253,7 +3301,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-width: 0;
 }
 
-#afcgptrweq .gt_subtitle {
+#hjhgxofkfh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3265,7 +3313,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-width: 0;
 }
 
-#afcgptrweq .gt_heading {
+#hjhgxofkfh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3277,13 +3325,13 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_bottom_border {
+#hjhgxofkfh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_col_headings {
+#hjhgxofkfh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3298,7 +3346,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_col_heading {
+#hjhgxofkfh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3318,7 +3366,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#afcgptrweq .gt_column_spanner_outer {
+#hjhgxofkfh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3330,15 +3378,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 4px;
 }
 
-#afcgptrweq .gt_column_spanner_outer:first-child {
+#hjhgxofkfh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#afcgptrweq .gt_column_spanner_outer:last-child {
+#hjhgxofkfh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#afcgptrweq .gt_column_spanner {
+#hjhgxofkfh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3350,11 +3398,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   width: 100%;
 }
 
-#afcgptrweq .gt_spanner_row {
+#hjhgxofkfh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#afcgptrweq .gt_group_heading {
+#hjhgxofkfh .gt_group_heading {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3380,7 +3428,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   text-align: left;
 }
 
-#afcgptrweq .gt_empty_group_heading {
+#hjhgxofkfh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3395,15 +3443,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: middle;
 }
 
-#afcgptrweq .gt_from_md > :first-child {
+#hjhgxofkfh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#afcgptrweq .gt_from_md > :last-child {
+#hjhgxofkfh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#afcgptrweq .gt_row {
+#hjhgxofkfh .gt_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3422,7 +3470,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   overflow-x: hidden;
 }
 
-#afcgptrweq .gt_stub {
+#hjhgxofkfh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3435,7 +3483,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#afcgptrweq .gt_stub_row_group {
+#hjhgxofkfh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3449,15 +3497,15 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   vertical-align: top;
 }
 
-#afcgptrweq .gt_row_group_first td {
+#hjhgxofkfh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#afcgptrweq .gt_row_group_first th {
+#hjhgxofkfh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#afcgptrweq .gt_summary_row {
+#hjhgxofkfh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3467,16 +3515,16 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#afcgptrweq .gt_first_summary_row {
+#hjhgxofkfh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_first_summary_row.thick {
+#hjhgxofkfh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#afcgptrweq .gt_last_summary_row {
+#hjhgxofkfh .gt_last_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3486,7 +3534,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_grand_summary_row {
+#hjhgxofkfh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3496,7 +3544,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#afcgptrweq .gt_first_grand_summary_row {
+#hjhgxofkfh .gt_first_grand_summary_row {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3506,7 +3554,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-top-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_last_grand_summary_row_top {
+#hjhgxofkfh .gt_last_grand_summary_row_top {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
@@ -3516,11 +3564,11 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_striped {
+#hjhgxofkfh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#afcgptrweq .gt_table_body {
+#hjhgxofkfh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3529,7 +3577,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-bottom-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_footnotes {
+#hjhgxofkfh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3543,7 +3591,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_footnote {
+#hjhgxofkfh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 1px;
@@ -3552,7 +3600,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#afcgptrweq .gt_sourcenotes {
+#hjhgxofkfh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3566,7 +3614,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   border-right-color: #D3D3D3;
 }
 
-#afcgptrweq .gt_sourcenote {
+#hjhgxofkfh .gt_sourcenote {
   font-size: 90%;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -3574,64 +3622,73 @@ The list contains the following data frames <code>header</code>, <code>footnote<
   padding-right: 5px;
 }
 
-#afcgptrweq .gt_left {
+#hjhgxofkfh .gt_left {
   text-align: left;
 }
 
-#afcgptrweq .gt_center {
+#hjhgxofkfh .gt_center {
   text-align: center;
 }
 
-#afcgptrweq .gt_right {
+#hjhgxofkfh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#afcgptrweq .gt_font_normal {
+#hjhgxofkfh .gt_font_normal {
   font-weight: normal;
 }
 
-#afcgptrweq .gt_font_bold {
+#hjhgxofkfh .gt_font_bold {
   font-weight: bold;
 }
 
-#afcgptrweq .gt_font_italic {
+#hjhgxofkfh .gt_font_italic {
   font-style: italic;
 }
 
-#afcgptrweq .gt_super {
+#hjhgxofkfh .gt_super {
   font-size: 65%;
 }
 
-#afcgptrweq .gt_footnote_marks {
+#hjhgxofkfh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#afcgptrweq .gt_asterisk {
+#hjhgxofkfh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#afcgptrweq .gt_indent_1 {
+#hjhgxofkfh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#afcgptrweq .gt_indent_2 {
+#hjhgxofkfh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#afcgptrweq .gt_indent_3 {
+#hjhgxofkfh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#afcgptrweq .gt_indent_4 {
+#hjhgxofkfh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#afcgptrweq .gt_indent_5 {
+#hjhgxofkfh .gt_indent_5 {
   text-indent: 25px;
+}
+
+#hjhgxofkfh .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#hjhgxofkfh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 
@@ -3676,7 +3733,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tbl_regression_ex<span class="sc">$</span>table_styling</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$header
-# A tibble: 23 × 8
+# A tibble: 24 × 8
    column             hide  align  interpret_label label  interpret_spanning_h…¹
    &lt;chr&gt;              &lt;lgl&gt; &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;                 
  1 variable           TRUE  center gt::md          varia… gt::md                
@@ -3689,7 +3746,7 @@ The list contains the following data frames <code>header</code>, <code>footnote<
  8 N                  TRUE  center gt::md          **N**  gt::md                
  9 coefficients_type  TRUE  center gt::md          coeff… gt::md                
 10 coefficients_label TRUE  center gt::md          coeff… gt::md                
-# ℹ 13 more rows
+# ℹ 14 more rows
 # ℹ abbreviated name: ¹​interpret_spanning_header
 # ℹ 2 more variables: spanning_header &lt;chr&gt;, modify_stat_N &lt;int&gt;
 
@@ -3808,18 +3865,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -3851,7 +3897,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/ddsjoberg\.github\.io\/ARD-onboarding\/");
@@ -3859,7 +3927,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
