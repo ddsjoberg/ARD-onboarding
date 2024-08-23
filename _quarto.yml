@@ -8,18 +8,18 @@ website:
   page-navigation: true
   title: "Analysis Results Datasets Onboarding"
   description: "Background on {cards}, {cardx}, {gtsummary}"
-  favicon: "images/v1-gtsummary-cards-cardx-HexSticker.png"
+  favicon: "images/hex.png"
 
   repo-url: https://github.com/ddsjoberg/ARD-onboarding
   repo-actions: [edit, issue]
 
   page-footer:
     left: "This page is built with ❤️ and [Quarto](https://quarto.org/). Inspired by [@minecr.bsky.social](https://bsky.app/profile/minecr.bsky.social)."
-    background: "#c8c8c8"
+    background: "#B8D09F"
 
   sidebar:
-    background: "#c8c8c8"
-    logo: "images/v1-gtsummary-cards-cardx-HexSticker.png"
+    background: "#B8D09F"
+    logo: "images/hex.png"
     pinned: true
     align: center
     tools:

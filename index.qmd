@@ -45,14 +45,9 @@ use an ARD object to construct a {gtsummary} table. The {cards} and
 {gtsummary} packages stand as robust and versatile tools, poised to
 assist in a multitude of analytical endeavors.
 
-[`r fontawesome::fa("github")`
-{cards}](https://github.com/insightsengineering/cards)
-
-[`r fontawesome::fa("github")`
-{cardx}](https://github.com/insightsengineering/cardx)
-
-[`r fontawesome::fa("github")`
-{gtsummary}](https://github.com/ddsjoberg/gtsummary)
+[`r fontawesome::fa("github")` {cards}](https://github.com/insightsengineering/cards)
+[`r fontawesome::fa("github")` {cardx}](https://github.com/insightsengineering/cardx)
+[`r fontawesome::fa("github")` {gtsummary}](https://github.com/ddsjoberg/gtsummary)
 
 # Pre-work
 
