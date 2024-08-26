@@ -28,20 +28,23 @@ can be accessed through a REST API, allowing writers to dynamically
 incorporate table results into reports.
 
 The {cardx} package (extra cards) is a companion to {cards}, exporting
-more complex functions to generate ARD objects. While {cards} package
+more complex functions to generate ARD objects. While the {cards} package
 has minimal dependencies, the {cardx} package will include additional
-suggested package dependencies.
+suggested package dependencies for implementing complex statistical methods.
 
 While {cards} calculates statistics and stores them in a structured
 object, it cannot present those results; this, however, is where the
 {gtsummary} package shines. The {gtsummary} package offers a modular
 framework to construct summary tables. It is the most widely used
-package for summary tables in the healthcare/pharmaceutical space, and
+package for summary tables in the healthcare/pharmaceutical/research space.
+The package
 won the American Statistical Association's 2021 award for Innovation in
-Statistical Programming and Analytics. The {gtsummary} package is
-currently being refactored to utilize {cards} as its backend, which will
+Statistical Programming and Analytics, the Posit 2024 Table Contest's 
+pharmacuetical track, and has over 1 million installations from CRAN. 
+The {gtsummary} package was recently refactored to utilize {cards} and 
+{cardx} as its backend, which will
 allow users to both extract an ARD object from a {gtsummary} table and
-use an ARD object to construct a {gtsummary} table. The {cards} and
+use an ARD object to construct a new {gtsummary} table. The {cards}, {cardx}, and
 {gtsummary} packages stand as robust and versatile tools, poised to
 assist in a multitude of analytical endeavors.
 
@@ -53,12 +56,17 @@ assist in a multitude of analytical endeavors.
 
 Before we meet to review the details, please complete the following:
 
+1. Install the development versions of {cards}, {cardx}, and {gtsummary} packages.
+
+    ```r
+    pak::pak(c("insightsengineering/cards", "insightsengineering/cardx", "ddsjoberg/gtsummary"))
+    ```
 1.  Review the full Analysis Results Standard, paying particular
     attention to the section on Analysis Results Data.
     -   CDISC webinar on the model:
         <https://www.cdisc.org/events/webinar/analysis-results-standard-public-review>
 1.  Review the {gtsummary} package.
-    -   Cornell Seminar:
+    -   Cornell Seminar (this recording was made long before ARDs were used in gtsummary, and gives an overview of how, generally, one uses the package):
         <https://www.youtube.com/watch?v=tANo9E1SYJE&t=5s>
 1.  Using the {cards} package, create a single ARD object that contains
     all the statistics needed to construct the table below (including
