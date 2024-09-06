@@ -7,6 +7,12 @@ editor:
     wrap: 72
 ---
 
+```{r}
+#| echo: false
+#| output: false
+\(x) broom::tidy()
+```
+
 # Overview
 
 The CDISC Analysis Results Data (ARD) Model is an emerging standard for
