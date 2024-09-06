@@ -5,20 +5,26 @@ editor: source
 
 The package utilizes a few standalone scripts that are used across a few projects, including {cards}, {cardx}, and {gtsummary}.
 Some of these scripts make available shims for common tidyverse functions, so you can use the function without depending on the package.
-The `"checks"` script is a series of functions to check the argument values supplied by users, and provides informative error messages when the values are not valid.
-Do not make changes to these files directly: rather, update these files in their source location.
+The `standalone-checks.R` script is a series of functions to check the argument values supplied by users, and provides informative error messages when the values are not valid.
 
 - `import-standalone-purrr.R`: https://github.com/r-lib/rlang/blob/main/R/standalone-purrr.R
+- `import-standalone-tibble.R` https://github.com/ddsjoberg/standalone/blob/main/R/standalone-tibble.R
 - `import-standalone-forcats.R` https://github.com/ddsjoberg/standalone/blob/main/R/standalone-forcats.R
 - `import-standalone-stringr.R` https://github.com/ddsjoberg/standalone/blob/main/R/standalone-stringr.R
 - `import-standalone-checks.R` https://github.com/ddsjoberg/standalone/blob/main/R/standalone-checks.R
+- `import-standalone-check_pkg_installed.R` https://github.com/ddsjoberg/standalone/blob/main/R/standalone-check_pkg_installed.R
+- `import-standalone-cli_call_env.R` https://github.com/ddsjoberg/standalone/blob/main/R/standalone-cli_call_env.R
 
-After the update has been made, you can copy the file into the repo with 
+You may find that you need, for example, an additional general checking function.
+If that is the case, you'd update the script in its source location, then run one of the lines below to update the script in the package you're working on.
 
 ```r
 usethis::use_standalone("r-lib/rlang", file = "purrr")
+usethis::use_standalone("ddsjoberg/standalone", file = "tibble")
 usethis::use_standalone("ddsjoberg/standalone", file = "forcats")
 usethis::use_standalone("ddsjoberg/standalone", file = "stringr")
 usethis::use_standalone("ddsjoberg/standalone", file = "checks")
+usethis::use_standalone("ddsjoberg/standalone", file = "check_pkg_installed")
+usethis::use_standalone("ddsjoberg/standalone", file = "cli_call_env")
 ```
 

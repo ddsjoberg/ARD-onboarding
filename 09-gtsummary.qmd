@@ -9,7 +9,7 @@ The {gtsummary} package was born from my previous team's migration to R. I had w
 
 The design of {gtsummary} comes from:
 
-1.  My experience publishing 250+ academic research manuscripts.
+1.  My experience publishing 300+ academic research manuscripts.
 
 2.  Serving as Statistical Editor for European Urology journal (highest-impact journal in the field).
 

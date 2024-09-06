@@ -8,7 +8,7 @@ editor: source
 
 We will use the `tbl_summary()` function to illustrate how to build a new gtsummary table.
 
-Imagine we wish to construct the table below: it can be done both by passing a data frame to `tbl_summary()` or an ARD to `card_summary()`. 
+Imagine we wish to construct the table below: it can be done both by passing a data frame to `tbl_summary()` or an ARD to `tbl_ard_summary()`. 
 These functions share most of their internals.
 
 
@@ -37,7 +37,7 @@ ard_for_table <-
     .total_n = TRUE                      # add total N to the ARD
   )
 
-# then convert it to a table with `card_summary()`
+# then convert it to a table with `tbl_ard_summary()`
 ard_for_table |> 
   tbl_ard_summary(
     by = trt,

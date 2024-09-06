@@ -8,8 +8,6 @@ editor: source
 Every {gtsummary} table has a few characteristics common among all tables created with the package.
 Here, we review those characteristics, and provide instructions on how to construct a {gtsummary} object.
 
-The in-progress version of the package lives in the `v2.0` branch.
-
 Let's begin by creating two common gtsummary tables: a simple summary and a regression model summary.
 
 ```{r setup, message=FALSE}
@@ -278,8 +276,9 @@ The default print engine is set with the theme element `"pkgwide-str:print_engin
 While the actual print function is slightly more involved, it is basically this:
 
 ```{r, eval = FALSE}
-print.gtsummary <- function(x) {
+print.gtsummary <- function(x, print_engine) {
     switch(
+      print_engine,
       "gt" = as_gt(x),
       "flextable" = as_flex_table(x),
       "huxtable" = as_hux_table(x),
