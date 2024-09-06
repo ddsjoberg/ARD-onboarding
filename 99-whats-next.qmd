@@ -1,18 +1,27 @@
 ---
 title: "What's Next?"
 editor: source
+engine: knitr
 ---
 
-### Priorities
+### Select an Issue
 
-1. Get the {cards} R package in a place to make it's first release. Focus on the GitHub issues tagged with `v0.1.0` in the {cards} repo.
+The GitHub site for each of the packages include tasks that need to be completed.
 
-1. Add `cardx::ard_*()` functions to support the functionality currently available in {gtsummary}. Focus on the GitHub issues tagged with `gtsummary` in the {cardx} repo.
+- **Issues**: These tasks are are listed on the "Issues" page of each GitHub site.
 
-1. Finalize the additional features we wish to include in {gtsummary}, and implement these features in the package.
+- **Milestone Issues**: From the "Issues" page, you can click the "Milestones" link on the top right, where you can review the Issues that have been slated for the next release of the package. Please only choose of these tasks if you are confident you can complete it well in advance of the milestone due date.
 
-1. Migrate all existing {gtsummary} to the new structure, and make the {gtsummary} v2.0 release.
+- **Labeled Issues**: Some issues have been labeled with "Good for beginners" or "Good first issue" tags.
+If you are newer to R package development, these issues are a good place to begin.
 
-1. Add `cardx::ard_*()` functions to calculate the statistics needed in the TLG catalog.
+Once you select an issue, please **comment on the issue** stating that you will work on it.
+We cannot officially assign it to you on GitHub until you've become a formal contributor to the project (which we hope you do become!).
 
-1. Build templates using our workflow for each of the TLGs in our catalog.
+You may find that some issues contain little detail. 
+Please feel free to ask for more details!
+Some issues are vague ideas of something we could implement, but have not yet thought through how it would be implmented.
+
+[`r fontawesome::fa("github")` {cards}](https://github.com/insightsengineering/cards)
+[`r fontawesome::fa("github")` {cardx}](https://github.com/insightsengineering/cardx)
+[`r fontawesome::fa("github")` {gtsummary}](https://github.com/ddsjoberg/gtsummary)

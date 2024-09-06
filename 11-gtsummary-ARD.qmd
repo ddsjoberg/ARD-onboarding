@@ -29,11 +29,11 @@ tbl_summary(
 ard_for_table <- 
   ard_stack(
     trial,
-    .by = trt,
     ard_continuous(variables = c(marker, age)),
     ard_categorical(variables = grade),
+    .by = trt,
     .missing = TRUE,                     # we use missing information in gtsummary
-    .attributes = TRUE,                  # we also use attirbutes like column labels
+    .attributes = TRUE,                  # we also use attributes like column labels
     .total_n = TRUE                      # add total N to the ARD
   )
 
