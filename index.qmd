@@ -11,6 +11,7 @@ editor:
 #| echo: false
 #| output: false
 \(x) broom::tidy()
+\(x) broom.helpers::all_categorical()
 ```
 
 # Overview
