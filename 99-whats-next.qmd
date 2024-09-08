@@ -15,12 +15,14 @@ The GitHub site for each of the packages include tasks that need to be completed
 - **Labeled Issues**: Some issues have been labeled with "Good for beginners" or "Good first issue" tags.
 If you are newer to R package development, these issues are a good place to begin.
 
+- **Statistical Methods**: Review your TLG catalog for statistical methods that are used and compare to the statistical methods implemented in [{cardx}](https://insightsengineering.github.io/cardx/latest-tag/reference/index.html), and add methods that have yet to be added. *Please post a GitHub issue before beginning work, to ensure it fits within the scope of the {cardx} package.*
+
 Once you select an issue, please **comment on the issue** stating that you will work on it.
 We cannot officially assign it to you on GitHub until you've become a formal contributor to the project (which we hope you do become!).
 
 You may find that some issues contain little detail. 
 Please feel free to ask for more details!
-Some issues are vague ideas of something we could implement, but have not yet thought through how it would be implmented.
+Some issues are vague ideas of something we could implement, but have not yet thought through how it would be implemented.
 
 [`r fontawesome::fa("github")` {cards}](https://github.com/insightsengineering/cards)
 [`r fontawesome::fa("github")` {cardx}](https://github.com/insightsengineering/cardx)
